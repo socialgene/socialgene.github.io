@@ -1,0 +1,40 @@
+site_name: socialgene
+site_url: https://chasemc.github.io/socialgene
+nav:
+        - Home: README.md
+        - "Overview": "overview.md"
+        - "Django":
+                  - "Setup": "django/django.md"
+                  - "Quick start": "django/quickstart.md"
+                  - "Advanced": "django/advanced.md"
+                  - "Contributing": "django/contributing.md"
+        #- "Neo4j": "deploying/neo4j/neo4j_alone.md"
+        - "Nextflow":
+                  - "Quickstart": "nextflow/simple_example.md"
+                  - "Build DB from taxon name": "nextflow/build_taxa.md"
+        - "Developing":
+                  - "Testing":
+                            - "Python": "developing/testingpython.md"
+                  - "Python":
+                            - "Classes": "developing/python/classes.md"
+                            #- "Classes Example": "developing/python/jupyter/classes.ipynb"
+        - "Python":
+                  - "Installation": "python/installation.md"
+                  - "Main Classes": "python/socialgene_classes.md"
+                  - "Examples": ""
+                  - "API": "python_api.md"
+        - "Nextflow"
+
+plugins:
+        - search
+        - autorefs
+        - mkdocstrings
+#        - mkdocs-coverage:
+#                  page_name: coverage # default
+#                  html_report_dir: htmlcov # default
+
+theme:
+        name: material
+
+extra_css:
+        - stylesheets/extra.css
