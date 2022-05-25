@@ -8,7 +8,6 @@ nav:
                   - "Quick start": "django/quickstart.md"
                   - "Advanced": "django/advanced.md"
                   - "Contributing": "django/contributing.md"
-        #- "Neo4j": "deploying/neo4j/neo4j_alone.md"
         - "Nextflow":
                   - "Quickstart": "nextflow/simple_example.md"
                   - "Build DB from taxon name": "nextflow/build_taxa.md"
@@ -17,7 +16,6 @@ nav:
                             - "Python": "developing/testingpython.md"
                   - "Python":
                             - "Classes": "developing/python/classes.md"
-                            #- "Classes Example": "developing/python/jupyter/classes.ipynb"
         - "Python":
                   - "Installation": "python/installation.md"
                   - "Main Classes": "python/socialgene_classes.md"
