@@ -35,7 +35,7 @@ docker run \
        --env NEO4J_dbms_memory_heap_max__size='4g' \
        --env NEO4J_dbms_memory_pagecache_size='3g' \
        --env NEO4J_dbms_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:4.3.7
+    neo4j:4.4.7
 
 ```
 

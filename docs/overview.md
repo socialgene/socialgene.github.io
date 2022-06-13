@@ -171,7 +171,7 @@ docker run \
     --env NEO4J_AUTH=neo4j/test \
     --interactive \
     --tty \
-    neo4j:4.3.7 \
+    neo4j:4.4.7 \
         neo4j-admin \
             memrec \
                 --memory=$ram_to_provide_to_neo4j \
@@ -188,7 +188,7 @@ Set sg_neoloc to the "neo4j" directory, the one containing "import", "data", etc
 
 ```bash
 sg_neoloc='/home/chase/Documents/socialgene_data/297c364c-b154-4edd-a7d5-68decf9effa2/socialgene_neo4j'
-sg_neoloc='/home/chase/Documents/socialgene_data/micromonospora2/socialgene_neo4j'
+sg_neoloc='/home/chase/Documents/socialgene_data/micromonospora/socialgene_neo4j'
 
 docker run \
     --user=$(id -u):$(id -g) \
@@ -208,7 +208,7 @@ docker run \
        --env NEO4J_dbms_memory_heap_max__size='23000m' \
        --env NEO4J_dbms_memory_pagecache_size='20g' \
        --env NEO4J_dbms_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:4.3.7
+    neo4j:4.4.7
 
 ```
 

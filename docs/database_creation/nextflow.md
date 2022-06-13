@@ -132,4 +132,4 @@ docker run \
        --env NEO4J_apoc_import_file_enabled=true \
        --env NEO4J_apoc_import_file_use__neo4j__config=true \
        --env NEO4JLABS_PLUGINS=\[\"apoc\"\] \
-     neo4j:4.3.7
+     neo4j:4.4.7
