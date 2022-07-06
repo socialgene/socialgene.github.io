@@ -36,11 +36,16 @@ clean:
 ## DOCUMENTATION BUILDING/SERVING
 ##
 
+create_conda: 
+	conda create --name sg_doc_build python=3.10 mkdocs mkdocstrings  mkdocs-material -y
+	# conda activate sg_doc_build
+
+
 ## doc_build	:	Build the mkdocs documentation
-doc_build:
+build: 
 	mkdocs build
 
 ## doc_serve	:	Serve the mkdocs documentation locally
-doc_serve:
+serve: 
 	mkdocs serve
 
