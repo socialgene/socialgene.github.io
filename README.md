@@ -3,7 +3,7 @@
 
 This repo contains the editable documentation of using Socialgene.
 
-If you just want to view the documentation, navigate to: [socialgene.github.io/socialgene](https://socialgene.github.io/socialgene)
+If you just want to view the documentation, navigate to: [socialgene.github.io](https://socialgene.github.io)
 
 ---
 
