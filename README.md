@@ -1,12 +1,9 @@
-Things to remove before making public:
-
-- ~common_parameters.env contains my ENTREZ API KEY
-
 ----------------
+![SocialGene Logo](https://raw.githubusercontent.com/socialgene/logos/main/logos/horizontal.svg) 
 
-<img src="https://raw.githubusercontent.com/socialgene/logos/main/media/early_mibig.png" width="100" height="100"> ![SocialGene Logo](https://raw.githubusercontent.com/socialgene/logos/main/logos/horizontal.svg) <img src="https://raw.githubusercontent.com/socialgene/logos/main/media/early_mibig.png" width="100" height="100">
+This repo contains the editable documentation of using Socialgene.
 
-Documentation: [socialgene.github.io/socialgene](https://socialgene.github.io/socialgene)
+If you just want to view the documentation, navigate to: [socialgene.github.io](https://socialgene.github.io)
 
 ---
 
