@@ -1,16 +1,17 @@
 site_name: socialgene
-site_url: https://chasemc.github.io/socialgene
+site_url: https://chasemc.github.io
 nav:
-        - Home: README.md
+        - Home: home.md
         - "Overview": "overview.md"
-        - "Quickstart": "quickstart.md"
+        - "Ultra-Quickstart!": "ultraquickstart.md"
         - "Django":
                   - "Setup": "django/django.md"
                   - "Quick start": "django/quickstart.md"
                   - "Advanced": "django/advanced.md"
                   - "Contributing": "django/contributing.md"
         - "Nextflow":
-                  - "Quickstart": "nextflow/simple_example.md"
+                  - "Install Nextflow": "nextflow/install_nextflow.md"
+                  - "Quickstart": "nextflow/quickstart.md"
                   - "Genome Inputs": "nextflow/genome_inputs.md"
                   - "Build DB from taxon name": "nextflow/build_taxa.md"
         - "Developing":
