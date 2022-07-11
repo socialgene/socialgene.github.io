@@ -1,7 +1,3 @@
-Things to remove before making public:
-
-- ~common_parameters.env contains my ENTREZ API KEY
-
 ----------------
 
 <img src="https://raw.githubusercontent.com/socialgene/logos/main/media/early_mibig.png" width="100" height="100"> ![SocialGene Logo](https://raw.githubusercontent.com/socialgene/logos/main/logos/horizontal.svg) <img src="https://raw.githubusercontent.com/socialgene/logos/main/media/early_mibig.png" width="100" height="100">
