@@ -126,7 +126,7 @@ docker run \
        --env NEO4J_dbms_security_procedures_unrestricted=gds.\\\*,algo.*,apoc.*\
        --env NEO4J_dbms_security_procedures_allowlist=gds.*,algo.*,apoc.* \
        --env NEO4J_dbms_memory_heap_initial__size='31g' \
-       --env NEO4J_dbms_memory_heap_max__size='31g' \
+       --env NEO4J_dbms_memory_heap_max__size='200g' \
        --env NEO4J_dbms_memory_pagecache_size='557000m' \
        --env NEO4J_dbms_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
        --env NEO4J_dbms_connector_bolt_address='0.0.0.0:7687' \
@@ -172,10 +172,10 @@ MERGE (n1)-[:ASSEMBLES_TO]->(a1);
 ```
 
 
-curl -s https://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_refseq.txt |  cut -f 1,6 | grep -v '#.*' > ass_species
+curl -s https://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_refseq.txt |  cut -f 1,6 | grep -v '#.*' > assembly_species
 ```cypher
 :auto USING PERIODIC COMMIT 1000
-LOAD CSV from 'file:///ass_species' as row
+LOAD CSV from 'file:///assembly_species' as row
 FIELDTERMINATOR '\t'
 MATCH (a1:assembly {id:row[0]})
 MATCH (t1:taxid {id:toString(row[1])})
@@ -184,8 +184,14 @@ MERGE (a1)-[:TAXONOMY]->(t1);
 ```
 
 
+Remote ssh for the web interface:
 
-MATCH p=(n:assembly)-[:TAXONOMY|BELONGS_TO*1..6]->(:taxid {rank:"class"})
-where n.id in ['GCF_014472405.1', 'GCF_000158975.1', 'GCF_011764565.1', 'GCF_006715925.1', 'GCF_003387075.1', 'GCF_016862495.1', 'GCF_018070485.1', 'GCF_000721115.1', 'GCF_014489635.1', 'GCF_011764425.1', 'GCF_003634705.1', 'GCF_001418335.1', 'GCF_020400585.1', 'GCF_001941275.1', 'GCF_014203425.1', 'GCF_016862475.1', 'GCF_004187715.1', 'GCF_002926165.1', 'GCF_003945525.1', 'GCF_001709195.1', 'GCF_017872985.1', 'GCF_011602315.1', 'GCF_007856155.1', 'GCF_022698305.1', 'GCF_014649235.1', 'GCF_008704795.1', 'GCF_020991275.1', 'GCF_900110755.1', 'GCF_014680085.1', 'GCF_900091415.1', 'GCF_007829995.1', 'GCF_003432485.1', 'GCF_003350585.1', 'GCF_001008345.1', 'GCF_014650235.1', 'GCF_001613105.1', 'GCF_016862515.1', 'GCF_000725125.1', 'GCF_002794255.1', 'GCF_014650055.1', 'GCF_001652995.1', 'GCF_902825365.1', 'GCF_001905625.1', 'GCF_020400725.1', 'GCF_018070505.1', 'GCF_018070525.1', 'GCF_000568915.1', 'GCF_006489195.2', 'GCF_001279985.1', 'GCF_003408515.1', 'GCF_900142575.1']
+```bash
+ifconfig
+ssh -L 7687:172.17.0.1:7687 -L 7474:172.17.0.1:7474 chase@10.130.167.147
+ssh -L 7474:172.17.0.1:7474 chase@10.130.167.147
+```
+ssh -O  cancel -f -N -L 127.0.0.1:7687:127.0.0.1:7687 chase@10.130.167.147
 
- RETURN p LIMIT 200
+
+pkill -f "ssh -f -N [chase@10.130.167.147]

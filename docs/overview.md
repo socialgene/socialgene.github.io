@@ -189,7 +189,7 @@ Set sg_neoloc to the "neo4j" directory, the one containing "import", "data", etc
 
 ```bash
 sg_neoloc='/home/chase/Documents/socialgene_data/297c364c-b154-4edd-a7d5-68decf9effa2/socialgene_neo4j'
-sg_neoloc='/home/chase/Documents/socialgene_data/micromonospora/socialgene_neo4j'
+sg_neoloc='/home/chase/Documents/socialgene_data/input_examples/socialgene_neo4j'
 
 docker run \
     --user=$(id -u):$(id -g) \
