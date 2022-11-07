@@ -35,7 +35,7 @@ make create_conda
 ```bash
 conda env create --file conda_environment.yml
 conda activate socialgene
-conda install -c anaconda make  
+conda install -c anaconda make
 ```
 
 To test that socialgene is correctly installed you can run the python test:
@@ -59,7 +59,6 @@ Open that file and take a look at the values within the `params{ ... }` block
 
 Change the memory and cpu values to fit your computer.
 
-
 ### Selecting the "modules" you want to use
 
 Currently you can choose between `hmms`, `mmseqs2`, or `blastp` for making protein-protein connections in the database
@@ -82,7 +81,7 @@ nextflow run nextflow \
     --outdir_per_run $outdir/run_info \
     --outdir_neo4j "$outdir/neo4j" \
     --outdir_long_cache "$outdir/long_cache"  \
-    -resume  
+    -resume
 ```
 
 - `outdir_per_run` will contain information about the run (timings, memory used, etc)
@@ -92,7 +91,7 @@ nextflow run nextflow \
 
 ### Making things faster by parallelizing
 
-Note:  The PYHMMER annotation step will finish faster if the proteins are split and provided in parallel. To do this, append `--fasta_splits` to the Nextflow command above and set the number of splits to perform (e.g. `--fasta_splits 12`). At the bottom of the `simple_run.config file you'll notice:
+Note: The PYHMMER annotation step will finish faster if the proteins are split and provided in parallel. To do this, append `--fasta_splits` to the Nextflow command above and set the number of splits to perform (e.g. `--fasta_splits 12`). At the bottom of the `simple_run.config file you'll notice:
 
 ```base
 process {
@@ -116,7 +115,7 @@ Instructions to run the Django app in "local" mode/not-production mode (currentl
 
 ### Adjusting parameters before starting
 
-Make sure you're in the top socialgene directory and have adjusted any necessary parameters in  `common_parameters.env`. Set the `HMM_LOCATION` variable to the full path of the HMMs file created from the Nextflow pipeline (`/home/chase/my_outdir/socialgene_long_cache/hmm_hash/socialgene_nr_hmms_file_1_of_1.hmm`) You shouldn't need to but if you changed any of the `HMMSEARCH...` parameters while creating the database, those settings should be exactly the same when launching the Django app. Additionally the file containing the HMMs created from the Nextflow pipeline should be.
+Make sure you're in the top socialgene directory and have adjusted any necessary parameters in `common_parameters.env`. Set the `HMM_LOCATION` variable to the full path of the HMMs file created from the Nextflow pipeline (`/home/chase/my_outdir/socialgene_long_cache/hmm_hash/socialgene_nr_hmms_file_1_of_1.hmm`) You shouldn't need to but if you changed any of the `HMMSEARCH...` parameters while creating the database, those settings should be exactly the same when launching the Django app. Additionally the file containing the HMMs created from the Nextflow pipeline should be.
 
 Neo4j memory constraints are also set from within the `common_parameters.env` file. See Neo4j memory configuration for info on how to determine optimal values.
 
@@ -210,6 +209,34 @@ docker run \
        --env NEO4J_dbms_memory_pagecache_size='20g' \
        --env NEO4J_dbms_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
     neo4j:4.4.7
+
+
+
+sg_neoloc='/home/chase/Documents/socialgene_data/micromonospora/socialgene_neo4j'
+
+docker run \
+    --user=$(id -u):$(id -g) \
+    -p7474:7474 -p7687:7687 \
+    -v $sg_neoloc/data:/data \
+    -v $sg_neoloc/logs:/logs \
+    -v $sg_neoloc/import:/var/lib/neo4j/import \
+    -v $sg_neoloc/plugins:/plugins \
+        --env NEO4J_AUTH=neo4j/test \
+        --env NEO4J_PLUGINS='["apoc", "graph-data-science", "n10s"]' \
+        --env NEO4J_apoc_export_file_enabled=true \
+        --env NEO4J_apoc_import_file_enabled=true \
+        --env NEO4J_apoc_import_file_use__neo4j__config=false \
+        --env NEO4J_server_memory_heap_initial__size='23000m' \
+        --env NEO4J_server_memory_heap_max__size='23000m' \
+        --env NEO4J_server_memory_pagecache_size='20g' \
+        --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
+    neo4j:5.1.0
+
+
+
+ apoc.export.file.enabled=true
+
+
 
 ```
 

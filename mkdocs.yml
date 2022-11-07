@@ -9,6 +9,7 @@ nav:
                   - "Quickstart": "nextflow/quickstart.md"
                   - "Genome Inputs": "nextflow/genome_inputs.md"
                   - "Build DB from taxon name": "nextflow/build_taxa.md"
+                  - "Outputs": "nextflow/outputs.md"
         - "Python":
                   - "Installation": "python/installation.md"
                   - "Main Classes": "python/socialgene_classes.md"
