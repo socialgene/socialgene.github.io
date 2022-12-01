@@ -161,7 +161,7 @@ LOAD CSV from 'file:///reduced' as row
 FIELDTERMINATOR '\t'
 MATCH (p1:protein {name:row[5]})
 MATCH (n1:nucleotide {id:row[1]})
-MERGE (n1)-[:CONTAINS {start:row[2], end:row[3], strand:row[4]}]->(p1);
+MERGE (n1)-[:ENCODES {start:row[2], end:row[3], strand:row[4]}]->(p1);
 ///////////////////////////////////////////////////////
 :auto USING PERIODIC COMMIT 1000
 LOAD CSV from 'file:///reduced' as row

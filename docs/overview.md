@@ -187,8 +187,14 @@ An example of launching the database directly:
 Set sg_neoloc to the "neo4j" directory, the one containing "import", "data", etc
 
 ```bash
-sg_neoloc='/home/chase/Documents/socialgene_data/297c364c-b154-4edd-a7d5-68decf9effa2/socialgene_neo4j'
-sg_neoloc='/home/chase/Documents/socialgene_data/input_examples/socialgene_neo4j'
+
+sg_neoloc='/home/chase/Documents/socialgene_data/mibig_3_1/socialgene_neo4j'
+mkdir -p $sg_neoloc/conf
+echo 'apoc.export.file.enabled=true' > $sg_neoloc/conf/apoc.conf
+echo 'apoc.import.file.enabled=true' >> $sg_neoloc/conf/apoc.conf
+echo 'apoc.export.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
+echo 'apoc.import.file.use_neo4j_config=true' >> $sg_neoloc/conf/apoc.conf
+echo 'dbms.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/apoc.conf
 
 docker run \
     --user=$(id -u):$(id -g) \
@@ -197,46 +203,16 @@ docker run \
     -v $sg_neoloc/logs:/logs \
     -v $sg_neoloc/import:/var/lib/neo4j/import \
     -v $sg_neoloc/plugins:/plugins \
-    --env NEO4J_AUTH=neo4j/test \
-       --env NEO4J_apoc_export_file_enabled=true \
-       --env NEO4J_apoc_import_file_enabled=true \
-       --env NEO4J_apoc_import_file_use__neo4j__config=true \
-       --env NEO4JLABS_PLUGINS=\[\"apoc\"\] \
-       --env NEO4J_dbms_security_procedures_unrestricted=gds.\\\*,algo.*,apoc.*\
-       --env NEO4J_dbms_security_procedures_allowlist=gds.*,algo.*,apoc.* \
-       --env NEO4J_dbms_memory_heap_initial__size='23000m' \
-       --env NEO4J_dbms_memory_heap_max__size='23000m' \
-       --env NEO4J_dbms_memory_pagecache_size='20g' \
-       --env NEO4J_dbms_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:4.4.7
-
-
-
-sg_neoloc='/home/chase/Documents/socialgene_data/micromonospora/socialgene_neo4j'
-
-docker run \
-    --user=$(id -u):$(id -g) \
-    -p7474:7474 -p7687:7687 \
-    -v $sg_neoloc/data:/data \
-    -v $sg_neoloc/logs:/logs \
-    -v $sg_neoloc/import:/var/lib/neo4j/import \
-    -v $sg_neoloc/plugins:/plugins \
-        --env NEO4J_AUTH=neo4j/test \
-        --env NEO4J_PLUGINS='["apoc", "graph-data-science", "n10s"]' \
-        --env NEO4J_apoc_export_file_enabled=true \
-        --env NEO4J_apoc_import_file_enabled=true \
-        --env NEO4J_apoc_import_file_use__neo4j__config=false \
+    -v $sg_neoloc/conf:/var/lib/neo4j/conf \
+       --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.* \
+       --env NEO4J_dbms_security_procedures_allowlist=gds.*,algo.*,apoc.*,n10s.* \
+       --env NEO4J_server_config_strict__validation_enabled=false \
+        --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
         --env NEO4J_server_memory_heap_initial__size='23000m' \
         --env NEO4J_server_memory_heap_max__size='23000m' \
         --env NEO4J_server_memory_pagecache_size='20g' \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
     neo4j:5.1.0
-
-
-
- apoc.export.file.enabled=true
-
-
 
 ```
 
