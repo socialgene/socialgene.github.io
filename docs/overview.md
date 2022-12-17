@@ -164,16 +164,16 @@ You will need to select the amount of memory Neo4j can use, this is set within t
 Noe4j can help you determine the correct values. To do so run the following, substituting the amount of RAM you want to dedicate to Neo4j in `ram_to_provide_to_neo4j`
 
 ```bash
-ram_to_provide_to_neo4j=60G
+ram_to_provide_to_neo4j=40G
 
 docker run \
     --user="$(id -u)":"$(id -g)" \
     --env NEO4J_AUTH=neo4j/test \
     --interactive \
     --tty \
-    neo4j:4.4.7 \
+    neo4j:5.1.0 \
         neo4j-admin \
-            memrec \
+            server memory-recommendation \
                 --memory=$ram_to_provide_to_neo4j \
                 --verbose \
                 --docker
@@ -189,12 +189,15 @@ Set sg_neoloc to the "neo4j" directory, the one containing "import", "data", etc
 ```bash
 
 sg_neoloc='/home/chase/Documents/socialgene_data/mibig_3_1/socialgene_neo4j'
+sg_neoloc='/home/chase/Documents/socialgene_data/ultraquickstarttemp/socialgene_neo4j'
+
+
 mkdir -p $sg_neoloc/conf
 echo 'apoc.export.file.enabled=true' > $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.enabled=true' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.export.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
-echo 'apoc.import.file.use_neo4j_config=true' >> $sg_neoloc/conf/apoc.conf
-echo 'dbms.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/apoc.conf
+echo 'apoc.import.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
+echo 'dbms.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
 
 docker run \
     --user=$(id -u):$(id -g) \
@@ -204,17 +207,20 @@ docker run \
     -v $sg_neoloc/import:/var/lib/neo4j/import \
     -v $sg_neoloc/plugins:/plugins \
     -v $sg_neoloc/conf:/var/lib/neo4j/conf \
-       --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.* \
-       --env NEO4J_dbms_security_procedures_allowlist=gds.*,algo.*,apoc.*,n10s.* \
-       --env NEO4J_server_config_strict__validation_enabled=false \
+        --env NEO4J_AUTH=neo4j/test \
         --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
-        --env NEO4J_server_memory_heap_initial__size='23000m' \
-        --env NEO4J_server_memory_heap_max__size='23000m' \
-        --env NEO4J_server_memory_pagecache_size='20g' \
+        --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.* \
+        --env NEO4J_dbms_security_procedures_allowlist=gds.*,algo.*,apoc.*,n10s.* \
+        --env NEO4J_server_config_strict__validation_enabled=false \
+        --env NEO4J_server_memory_heap_initial__size='15g' \
+        --env NEO4J_server_memory_heap_max__size='40g' \
+        --env NEO4J_server_memory_pagecache_size='16g' \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
     neo4j:5.1.0
 
 ```
+
+
 
 <div id="video" class="tabcontent" style="display:inline-block;width: 75%">
 <script id="asciicast-bKeOmGonFS9vPtWbgOm2GrqhS" src="https://asciinema.org/a/bKeOmGonFS9vPtWbgOm2GrqhS.js" async></script>
