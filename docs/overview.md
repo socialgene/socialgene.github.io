@@ -2,7 +2,7 @@
 
 This tutorial assumes you already have [git](https://github.com/git-guides/install-git), [conda](https://docs.conda.io/en/latest/miniconda.html) and [Docker](https://docs.docker.com/get-docker/) installed on your computer.
 
-SocialGene was developed and tested on Ubuntu Linux. Because everything is Conda-ized/Docker-ized I see no reason that would prevent it from working on Mac or Windows given you have Conda and Docker successfully installed on those systems; that said, support for those OSs may be minimal.
+SocialGene was developed and tested on Ubuntu Linux. Because everything is Conda-ized/Docker-ized I see no reason that would prevent it from working on Mac or Windows given you have Conda and Docker successfully installed on those systems; that said, support for those OSs will be minimal.
 
 ## Setting up SocialGene with Make
 
@@ -184,13 +184,11 @@ For more detailed info on memory settings in Neo4j refer to [the Neo4j memrec do
 ### Launching Neo4j alone
 
 An example of launching the database directly:
-Set sg_neoloc to the "neo4j" directory, the one containing "import", "data", etc
+Set sg_neoloc below to the "neo4j" directory, this is the directory containing "import", "data", etc
 
 ```bash
 
-sg_neoloc='/home/chase/Documents/socialgene_data/mibig_3_1/socialgene_neo4j'
-sg_neoloc='/home/chase/Documents/socialgene_data/ultraquickstarttemp/socialgene_neo4j'
-
+sg_neoloc='/home/chase/Documents/socialgene_data/mibig/socialgene_neo4j'
 
 mkdir -p $sg_neoloc/conf
 echo 'apoc.export.file.enabled=true' > $sg_neoloc/conf/apoc.conf
@@ -198,6 +196,7 @@ echo 'apoc.import.file.enabled=true' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.export.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
 echo 'dbms.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+echo 'dbms.directories.export=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
 
 docker run \
     --user=$(id -u):$(id -g) \
