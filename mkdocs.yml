@@ -2,9 +2,9 @@ site_name: socialgene
 site_url: https://chasemc.github.io
 nav:
         - Home: home.md
-        - "System Requirements": "system.md"
-        - "Advanced Start": "advanced_start.md"
+        - "System Requirements": "system_requirements.md"
         - "Ultra-Quickstart!": "ultraquickstart.md"
+        - "Advanced Start": "advanced_start.md"
         - "Nextflow":
                   - "Install Nextflow": "nextflow/install_nextflow.md"
                   - "Quickstart": "nextflow/quickstart.md"
