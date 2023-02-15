@@ -70,7 +70,7 @@ Instructions to run the Django app in "local" mode/not-production mode (currentl
 
 ### Adjusting parameters before starting
 
-Make sure you're in the top socialgene directory and have adjusted any necessary parameters in `common_parameters.env`. Set the `HMM_LOCATION` variable to the full path of the HMMs file created from the Nextflow pipeline (`/home/chase/my_outdir/socialgene_long_cache/hmm_hash/socialgene_nr_hmms_file_1_of_1.hmm`) You shouldn't need to but if you changed any of the `HMMSEARCH...` parameters while creating the database, those settings should be exactly the same when launching the Django app. Additionally the file containing the HMMs created from the Nextflow pipeline should be.
+Make sure you're in the top SocialGene directory and have adjusted any necessary parameters in `common_parameters.env`. Set the `HMM_LOCATION` variable to the full path of the HMMs file created from the Nextflow pipeline (`/home/chase/my_outdir/socialgene_long_cache/hmm_hash/socialgene_nr_hmms_file_1_of_1.hmm`) You shouldn't need to but if you changed any of the `HMMSEARCH...` parameters while creating the database, those settings should be exactly the same when launching the Django app. Additionally the file containing the HMMs created from the Nextflow pipeline should be.
 
 Neo4j memory constraints are also set from within the `common_parameters.env` file. See Neo4j memory configuration for info on how to determine optimal values.
 
@@ -182,7 +182,7 @@ docker run \
 
 You can then open the Neo4j database in a web browser by typing `localhost:7474` in the url bar.
 
-To make socialgene queries faster you can add a couple indices for protein and hmm IDs using the following commands in the neo4j browser:
+To make SocialGene queries faster you can add a couple indices for protein and hmm IDs using the following commands in the neo4j browser:
 
 `CREATE CONSTRAINT ON (n:protein) ASSERT n.id IS UNIQUE`
 

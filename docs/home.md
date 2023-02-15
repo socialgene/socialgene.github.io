@@ -16,7 +16,7 @@ Socialgene consists of three components:
 --- 
 ## How does this all work?
 
-The general flow starts with creating a socialgene Neo4j database. This is done using the Nextflow pipeline which handles...
+The general flow starts with creating a SocialGene Neo4j database. This is done using the Nextflow pipeline which handles...
 
 - Downloading proteins/genomes from NCBI or using local genomes (genbank format)
 - Downloading HMMs from multiple databases (or using local HMMs) and upconverting to the latest HMMER format

@@ -1,12 +1,12 @@
 # Setup
 
-Download the socialgene repository
+Download the SocialGene repository
 
 ```bash
 git clone https://github.com/chasemc/socialgene.git
 ```
 
-Move to the socialgene directory....
+Move to the SocialGene directory....
 
 ```bash
 cd socialgene

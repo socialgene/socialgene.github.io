@@ -8,12 +8,12 @@ Socialgene consists of three components:
     - Used to generate the large database.
     - It uses the Python package (#1)
 3. `/django`: a Django web site
-    - Used to query the database, initiate socialgene python scripts, and visualize results
+    - Used to query the database, initiate SocialGene python scripts, and visualize results
     - Fairly trivial to setup your own instance using `docker-compose`
 
 For more detailed information about each, navigate to the subfolder's README.md.
 
-The general flow starts with creating a socialgene Neo4j database:
+The general flow starts with creating a SocialGene Neo4j database:
 
 - Create a Neo4j graph database
   - This is done usinge the Nextflow pipeline which handles...
@@ -29,9 +29,9 @@ It is best to run the pipeline on a machine that has a decent number of CPUs. A 
 
 The database can be interacted with in two ways:
 
-1) Through the socialgene Python library
+1) Through the SocialGene Python library
 2) Through the Django application (web-based GUI)
-    - The Django app primarily relies on functions within the socialgene Python library
+    - The Django app primarily relies on functions within the SocialGene Python library
     - It has been developed using Docker Compose which has shortcut command in the Makefile for easier use
 
 Instructions for installing and using the Python library can be found here: TODO

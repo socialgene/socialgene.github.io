@@ -83,7 +83,7 @@ On release, automated continuous integration tests run the pipeline on a full-si
 
 ## Quick Start
 
-The main socialgene conda environment contains nextflow so, if you haven't already, download miniconda and then create the socialgene conda environment
+The main SocialGene conda environment contains nextflow so, if you haven't already, download miniconda and then create the SocialGene conda environment
 
 ```bash
 conda env create --file https://raw.githubusercontent.com/chasemc/socialgene/main/nextflow/python_environment.yml

@@ -20,7 +20,7 @@ All of the docker images should be on DockerHub, but if you need to build them l
 
 ## Build Docker images locally
 
-Download the socialgene repository
+Download the SocialGene repository
 
 ```bash
 git clone https://github.com/socialgene/sgnf.git
