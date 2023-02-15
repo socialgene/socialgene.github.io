@@ -2,7 +2,8 @@ site_name: socialgene
 site_url: https://chasemc.github.io
 nav:
         - Home: home.md
-        - "Overview": "overview.md"
+        - "System Requirements": "system.md"
+        - "Advanced Start": "advanced_start.md"
         - "Ultra-Quickstart!": "ultraquickstart.md"
         - "Nextflow":
                   - "Install Nextflow": "nextflow/install_nextflow.md"
@@ -10,6 +11,7 @@ nav:
                   - "Genome Inputs": "nextflow/genome_inputs.md"
                   - "Build DB from taxon name": "nextflow/build_taxa.md"
                   - "Outputs": "nextflow/outputs.md"
+                  - "Docker and the Nextflow Pipeline": "nextflow/nextflow_docker_images.md"
         - "Python":
                   - "Installation": "python/installation.md"
                   - "Main Classes": "python/socialgene_classes.md"
@@ -20,12 +22,10 @@ nav:
                   - "Advanced": "django/advanced.md"
                   - "Contributing": "django/contributing.md"
         - "Developing":
-                  - "Testing":
-                            - "Python": "developing/testingpython.md"
                   - "Python":
-                            - "Classes": "developing/python/classes.md"
-                  - "Docker":
-                            - "Docker and the Nextflow Pipeline": "developing/docker/nextflow_docker_images.md"
+                            - "Setup": "developing/python/setup.md"
+                            - "Testing": "developing/python/testing.md"
+
 plugins:
         - search
         - autorefs
