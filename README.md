@@ -1,5 +1,5 @@
-----------------
-![SocialGene Logo](https://raw.githubusercontent.com/socialgene/logos/main/logos/horizontal.svg) 
+
+![SocialGene Logo](https://raw.githubusercontent.com/socialgene/logos/main/logos/horizontal.svg)
 
 This repo contains the editable documentation of using Socialgene.
 
@@ -31,3 +31,11 @@ Satus Checks and Availability:
 - [![nf-core linting](https://github.com/socialgene/socialgene/actions/workflows/nextflow_linting.yml/badge.svg)](https://github.com/socialgene/socialgene/actions/workflows/nextflow_linting.yml) [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A521.10.3-23aa62.svg?labelColor=000000)](https://www.nextflow.io/) [![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/) [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
 
 ---
+
+### To run locally
+
+```bash
+make create_conda
+conda activate sg_doc_build
+mkdocs serve
+```
