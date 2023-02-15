@@ -23,7 +23,9 @@ nav:
                   - "Testing":
                             - "Python": "developing/testingpython.md"
                   - "Python":
-                            - "Classes": "developing/python/classes.md"                  
+                            - "Classes": "developing/python/classes.md"
+                  - "Docker":
+                            - "Docker and the Nextflow Pipeline": "developing/docker/nextflow_docker_images.md"
 plugins:
         - search
         - autorefs
