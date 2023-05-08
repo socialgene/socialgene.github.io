@@ -5,13 +5,14 @@ nav:
         - "System Requirements": "system_requirements.md"
         - "Ultra-Quickstart!": "ultraquickstart.md"
         - "Building a Database (Nextflow)":
-                  - "Installation": "nextflow/install_nextflow.md"
+                  - "Installation": "nextflow/installation.md"
                   - "Genome Inputs": "nextflow/genome_inputs.md"
                   - "Outputs": "nextflow/outputs.md"
                   - "Overview": "nextflow/quickstart.md"
-                  - "Running the Piepeline": "advanced_start.md"
-                  - "Docker Images": "nextflow/nextflow_docker_images.md"
+                  - "Running the Pipeline": "advanced_start.md"
                   - "Examples": "nextflow/examples.md"
+                  - "Advanced":
+                            - "Docker Images": "nextflow/docker_images.md"
         - "Web Interface (Django)":
                   - "Setup": "django/django.md"
                   - "Quick start": "django/quickstart.md"
@@ -29,7 +30,8 @@ plugins:
 #        - mkdocs-coverage:
 #                  page_name: coverage # default
 #                  html_report_dir: htmlcov # default
-
+markdown_extensions:
+        - attr_list
 theme:
         name: material
 
