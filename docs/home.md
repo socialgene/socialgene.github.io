@@ -60,3 +60,7 @@ The Neo4j database can be interacted with in multiple ways including:
 2. Through SocialGene's Django application (web-based GUI)
 3. Running Neo4j and then using "Neo4j Browser" or any number of other tools that use Neo4j (Cytoscape, Gephi, yFiles/yWorks, etc.)
 
+
+
+For info on HMMs see:
+https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/

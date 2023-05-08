@@ -32,7 +32,7 @@ Enter the sgnf/dockerfiles directory
 cd ./sgnf/dockerfiles
 ```
 
-Then run the make_docker script (reminder for Chase only: add `---upload` to auto-upload to DockerHub after building)
+Then run the make_docker script
 
 ```bash
 make_docker.sh 

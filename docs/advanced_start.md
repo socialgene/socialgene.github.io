@@ -143,15 +143,19 @@ Set sg_neoloc below to the "neo4j" directory, this is the directory containing "
 
 ```bash
 
-sg_neoloc='/home/chase/Documents/socialgene_data/mibig/socialgene_neo4j'
+sg_neoloc='/home/chase/Documents/socialgene_data/older/mibig2/socialgene_neo4j'
 
 mkdir -p $sg_neoloc/conf
 echo 'apoc.export.file.enabled=true' > $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.enabled=true' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.export.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
-echo 'dbms.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
-echo 'dbms.directories.export=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+echo 'server.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+echo 'server.directories.export=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+
+# curl https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/5.1.0/apoc-5.1.0-extended.jar > $sg_neoloc/plugins/apoc-5.1.0-extended.jar
+# wget https://github.com/xerial/sqlite-jdbc/releases/download/3.40.1.0/sqlite-jdbc-3.40.1.0.jar
+
 
 docker run \
     --user=$(id -u):$(id -g) \
@@ -162,9 +166,9 @@ docker run \
     -v $sg_neoloc/plugins:/plugins \
     -v $sg_neoloc/conf:/var/lib/neo4j/conf \
         --env NEO4J_AUTH=neo4j/test \
-        --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
-        --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.* \
-        --env NEO4J_dbms_security_procedures_allowlist=gds.*,algo.*,apoc.*,n10s.* \
+        --env NEO4J_PLUGINS='["apoc"]' \
+        --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*, \
+        --env NEO4J_dbms_security_procedures_allowlist=algo.*,apoc.*,n10s.* \
         --env NEO4J_server_config_strict__validation_enabled=false \
         --env NEO4J_server_memory_heap_initial__size='15g' \
         --env NEO4J_server_memory_heap_max__size='40g' \
