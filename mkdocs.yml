@@ -6,13 +6,15 @@ nav:
         - "Ultra-Quickstart!": "ultraquickstart.md"
         - "Building a Database (Nextflow)":
                   - "Installation": "nextflow/installation.md"
-                  - "Genome Inputs": "nextflow/genome_inputs.md"
+                  - "Inputs": "nextflow/inputs.md"
                   - "Outputs": "nextflow/outputs.md"
                   - "Overview": "nextflow/quickstart.md"
-                  - "Running the Pipeline": "advanced_start.md"
+                  - "Running the Workflow": "nextflow/running_the_pipeline.md"
                   - "Examples": "nextflow/examples.md"
                   - "Advanced":
                             - "Docker Images": "nextflow/docker_images.md"
+        - "Interacting with a Database (Neo4j)":
+                  - "Neo4j": "neo4j/advanced_start.md"
         - "Web Interface (Django)":
                   - "Setup": "django/django.md"
                   - "Quick start": "django/quickstart.md"
