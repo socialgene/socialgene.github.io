@@ -1,4 +1,4 @@
-
+reminder- need to change base.config memory requirments
 
 
 These instructions cover how to annotate large numbers of proteins with HMMER, using the University of Wisconsin-Madison's Center for High Throughput Computing (CHTC) facilities. If your facility uses HTCondor many of the steps may be similar.
@@ -179,7 +179,7 @@ LOAD CSV from 'file:///assembly_species' as row
 FIELDTERMINATOR '\t'
 MATCH (a1:assembly {id:row[0]})
 MATCH (t1:taxid {id:toString(row[1])})
-MERGE (a1)-[:TAXONOMY]->(t1);
+MERGE (a1)-[:IS_TAXON]->(t1);
 
 ```
 

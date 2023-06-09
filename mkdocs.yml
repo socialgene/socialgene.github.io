@@ -2,21 +2,20 @@ site_name: socialgene
 site_url: https://chasemc.github.io
 nav:
         - Home: home.md
-        - "System Requirements": "system.md"
-        - "Advanced Start": "advanced_start.md"
+        - "System Requirements": "system_requirements.md"
         - "Ultra-Quickstart!": "ultraquickstart.md"
-        - "Nextflow":
-                  - "Install Nextflow": "nextflow/install_nextflow.md"
-                  - "Quickstart": "nextflow/quickstart.md"
-                  - "Genome Inputs": "nextflow/genome_inputs.md"
-                  - "Build DB from taxon name": "nextflow/build_taxa.md"
+        - "Building a Database (Nextflow)":
+                  - "Installation": "nextflow/installation.md"
+                  - "Inputs": "nextflow/inputs.md"
                   - "Outputs": "nextflow/outputs.md"
-                  - "Docker and the Nextflow Pipeline": "nextflow/nextflow_docker_images.md"
-        - "Python":
-                  - "Installation": "python/installation.md"
-                  - "Main Classes": "python/socialgene_classes.md"
-                  - "API": "python_api.md"
-        - "Django":
+                  - "Overview": "nextflow/quickstart.md"
+                  - "Running the Workflow": "nextflow/running_the_pipeline.md"
+                  - "Examples": "nextflow/examples.md"
+                  - "Advanced":
+                            - "Docker Images": "nextflow/docker_images.md"
+        - "Interacting with a Database (Neo4j)":
+                  - "Neo4j": "neo4j/advanced_start.md"
+        - "Web Interface (Django)":
                   - "Setup": "django/django.md"
                   - "Quick start": "django/quickstart.md"
                   - "Advanced": "django/advanced.md"
@@ -33,7 +32,8 @@ plugins:
 #        - mkdocs-coverage:
 #                  page_name: coverage # default
 #                  html_report_dir: htmlcov # default
-
+markdown_extensions:
+        - attr_list
 theme:
         name: material
 

@@ -1,35 +1,38 @@
-There are a few different ways to input genomes into the Nextflow pipeline.
-
+There are a few different ways to input proteins and/or genomes into the Nextflow pipeline.
 
 ## Local files
 
-Note: This strategy may change in the future.
 
-To run the pipeline using already downloaded/local genbank files (e.g. `.gbk` or `.gbff`) you need to set two parameters.
+### Genomes
+To run the pipeline using already downloaded/local genbank files (e.g. `.gbk`or `.gbff`).
 
-1) The path to the files via `local_genbank`. This can be a [glob pattern](https://www.digitalocean.com/community/tools/glob). If you have thousands of files you should provide the path of a single directory that contains all the files so as to not overwhelm the pipeline.
+Provide the path to the files via `local_genbank`. This can be a [glob pattern](https://www.digitalocean.com/community/tools/glob). If you have thousands of input files you should provide the path of a single directory that contains all the files and not a glob of the files themselves.
 
-2) A glob pattern of the input files via `sequence_files_glob`.
+For example, if `local_genbank='/home/me/input_genome_*.gbk'`
 
+### Proteins
 
-For example, if `local_genbank='/home/me/input_genome_*.gbk'` then `sequence_files_glob='input_genome_*.gbk'`
+To run the pipeline using already downloaded/local protein FASTA files (e.g. `.faa`).
 
+Provide the path to the files via `local_fasta`. This can be a [glob pattern](https://www.digitalocean.com/community/tools/glob). If you have thousands of input files you should provide the path of a single directory that contains all the files and not a glob of the files themselves.
 
+For example, if `local_fasta='/home/me/input_genome_*.faa'`
 
+## Retreive genomes from NCBI
 
-## ncbi-genome-download
+### ncbi-genome-download (preferred)
 
-Kai Blin's `ncbi-genome-download` tool can be used to retrieve genomes from NCBI using the Nextflow pipeline parameter `ncbi_genome_download_command`
+The Nextflow workflow contains Kai Blin's `ncbi-genome-download` tool which can be used to retrieve genomes from NCBI. This can be done by using the Nextflow workflow parameter `ncbi_genome_download_command`, which is passes a string which is simply the ncbi-genome-download commmand minus the intitial "ncbi-genome-download" call. See the [tool's website](https://github.com/kblin/ncbi-genome-download#usage){: target='_blank'} for examples.
 
-e.g.  `ncbi_genome_download_command = 'bacteria --genera "Paraburkholderia acidicola"'`
+For example, the following will download and run the workflow on all "Paraburkholderia acidicola" genomes available within GenBank.
 
-This can be passed through the command line...
+This can be done through at command line...
 
 ``` bash
 
 nextflow run \
     socialgene/sgnf \
-  --ncbi_genome_download_command 'bacteria --genera "Paraburkholderia acidicola"' \
+  --ncbi_genome_download_command 'bacteria --section genbank --genera "Paraburkholderia acidicola"' \
   ...
 
 ```
@@ -39,7 +42,7 @@ nextflow run \
 An example config file can be found [here](https://github.com/socialgene/sgnf/conf/examples/input_examples/ncbi_genome_download.config). And commands for ncbi-genome-download can be found on its GitHub page: [https://github.com/kblin/ncbi-genome-download](https://github.com/kblin/ncbi-genome-download)
 
 
-## NCBI datasets
+### NCBI datasets
 
 NCBI has a newish command line tool for downloading genomes, called NCBI datasets. A command may be passed to `datasets download` by using the Nextflow pipeline `ncbi_datasets_command`.
 
