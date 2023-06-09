@@ -18,7 +18,7 @@ docker run \
     --env NEO4J_AUTH=neo4j/test \
     --interactive \
     --tty \
-    neo4j:5.1.0 \
+    neo4j:5.7.0 \
         neo4j-admin \
             server memory-recommendation \
                 --memory=$ram_to_provide_to_neo4j \
@@ -35,7 +35,7 @@ Set sg_neoloc below to the "neo4j" directory, this is the directory containing "
 
 ```bash
 
-sg_neoloc='/home/chase/Documents/socialgene_data/a1/socialgene_neo4j'
+sg_neoloc='/home/chase/Documents/socialgene_data/ultra/socialgene_neo4j'
 
 mkdir -p $sg_neoloc/conf
 echo 'apoc.export.file.enabled=true' > $sg_neoloc/conf/apoc.conf
@@ -57,8 +57,8 @@ docker run \
     -v $sg_neoloc/import:/var/lib/neo4j/import \
     -v $sg_neoloc/plugins:/plugins \
     -v $sg_neoloc/conf:/var/lib/neo4j/conf \
-        --env NEO4J_AUTH=neo4j/test \
-        --env NEO4J_PLUGINS='["apoc"]' \
+        --env NEO4J_AUTH=neo4j/test12345 \
+        --env NEO4J_PLUGINS='["apoc","graph-data-science"]' \
         --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.*, \
         --env NEO4J_dbms_security_procedures_allowlist=algo.*,apoc.*,n10s.*,gds.* \
         --env NEO4J_server_config_strict__validation_enabled=false \
@@ -66,7 +66,7 @@ docker run \
         --env NEO4J_server_memory_heap_max__size='40g' \
         --env NEO4J_server_memory_pagecache_size='16g' \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:5.1.0
+    neo4j:5.7.0
 
 ```
 
