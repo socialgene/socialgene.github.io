@@ -1,7 +1,7 @@
 site_name: socialgene
 site_url: https://chasemc.github.io
 nav:
-        - Home: home.md
+        - "index.md"
         - "System Requirements": "system_requirements.md"
         - "Ultra-Quickstart!": "ultraquickstart.md"
         - "Building a Database (Nextflow)":
