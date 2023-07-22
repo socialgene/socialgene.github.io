@@ -50,9 +50,6 @@ BLASTp and MMSEQS inter-protein comparisons can be made be includeing the `--bla
 BLASTp is very time/resource consuming and should only be used on limited datasets.
 
 ```bash
-
-
-
 nextflow run nextflow \
   -profile test \
   --outdir_per_run "/path/to/outdir_per_run" \

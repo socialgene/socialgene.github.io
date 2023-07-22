@@ -3,7 +3,8 @@ site_url: https://chasemc.github.io
 nav:
         - "index.md"
         - "System Requirements": "system_requirements.md"
-        - "Ultra-Quickstart!": "ultraquickstart.md"
+        - "Ultra-Quickstart!": "ultraquickstart/ultraquickstart.md"
+
         - "Building a Database (Nextflow)":
                   - "Installation": "nextflow/installation.md"
                   - "Inputs": "nextflow/inputs.md"
@@ -24,6 +25,7 @@ nav:
                   - "Python":
                             - "Setup": "developing/python/setup.md"
                             - "Testing": "developing/python/testing.md"
+        - "Give Feedback": "feedback.md"
 
 plugins:
         - search

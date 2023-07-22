@@ -100,9 +100,9 @@ docker run \
         --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*, \
         --env NEO4J_dbms_security_procedures_allowlist=algo.*,apoc.*,n10s.* \
         --env NEO4J_server_config_strict__validation_enabled=false \
-        --env NEO4J_server_memory_heap_initial__size='15g' \
-        --env NEO4J_server_memory_heap_max__size='40g' \
-        --env NEO4J_server_memory_pagecache_size='16g' \
+        --env NEO4J_server_memory_heap_initial__size='100g' \
+        --env NEO4J_server_memory_heap_max__size='100g' \
+        --env NEO4J_server_memory_pagecache_size='800g' \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
     neo4j:5.1.0
 

@@ -11,7 +11,7 @@ You will need to select the amount of memory Neo4j can use, this is set within t
 Noe4j can help you determine the correct values. To do so run the following, substituting the amount of RAM you want to dedicate to Neo4j in `ram_to_provide_to_neo4j`
 
 ```bash
-ram_to_provide_to_neo4j=40G
+ram_to_provide_to_neo4j=800G
 
 docker run \
     --user="$(id -u)":"$(id -g)" \
@@ -31,12 +31,12 @@ For more detailed info on memory settings in Neo4j refer to [the Neo4j memrec do
 ### Launching Neo4j alone
 
 An example of launching the database directly:
-Set sg_neoloc below to the "neo4j" directory, this is the directory containing "import", "data", etc
+Set sg_neoloc below to the "neo4j" directory, this is the directory created by Nextflow workflow containing the folders "import", "data", etc
 
 ```bash
 
-sg_neoloc='/home/chase/Documents/socialgene_data/m2/socialgene_neo4j'
-
+sg_neoloc='/media/socialgene_nvme/v0.2.3/refseq/socialgene_neo4j'
+sg_neoloc='/home/chase/Documents/socialgene_data/BGC0001848/socialgene_neo4j'
 mkdir -p $sg_neoloc/conf
 echo 'apoc.export.file.enabled=true' > $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.enabled=true' >> $sg_neoloc/conf/apoc.conf
@@ -58,17 +58,46 @@ docker run \
     -v $sg_neoloc/plugins:/plugins \
     -v $sg_neoloc/conf:/var/lib/neo4j/conf \
         --env NEO4J_AUTH=neo4j/test12345 \
-        --env NEO4J_PLUGINS='["apoc"]' \
+        --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
         --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.*, \
         --env NEO4J_dbms_security_procedures_allowlist=algo.*,apoc.*,n10s.*,gds.* \
         --env NEO4J_server_config_strict__validation_enabled=false \
-        --env NEO4J_server_memory_heap_initial__size='15g' \
-        --env NEO4J_server_memory_heap_max__size='40g' \
-        --env NEO4J_server_memory_pagecache_size='16g' \
+        --env NEO4J_server_memory_heap_initial__size='100G' \
+        --env NEO4J_server_memory_heap_max__size='100G' \
+        --env NEO4J_server_memory_pagecache_size='800G' \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:5.7.0
+        --env NEO4J_ACCEPT_LICENSE_AGREEMENT='yes' \
+    neo4j:5.7.0-enterprise
 
 ```
+
+
+
+If you have the paid enterprise version of Neo4j you can use the following:
+
+```
+docker run \
+    --user=$(id -u):$(id -g) \
+    -p7474:7474 -p7687:7687 \
+    -v $sg_neoloc/data:/data \
+    -v $sg_neoloc/logs:/logs \
+    -v $sg_neoloc/import:/var/lib/neo4j/import \
+    -v $sg_neoloc/plugins:/plugins \
+    -v $sg_neoloc/conf:/var/lib/neo4j/conf \
+        --env NEO4J_AUTH=neo4j/test12345 \
+        --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
+        --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.*, \
+        --env NEO4J_dbms_security_procedures_allowlist=algo.*,apoc.*,n10s.*,gds.* \
+        --env NEO4J_server_config_strict__validation_enabled=false \
+        --env NEO4J_server_memory_heap_initial__size='20G' \
+        --env NEO4J_server_memory_heap_max__size='20G' \
+        --env NEO4J_server_memory_pagecache_size='20G' \
+        --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
+        --env NEO4J_ACCEPT_LICENSE_AGREEMENT='yes' \
+    neo4j:5.7.0-enterprise
+```
+
+
 
 
 
@@ -80,9 +109,9 @@ You can then open the Neo4j database in a web browser by typing `localhost:7474`
 
 To make SocialGene queries faster you can add a couple indices for protein and hmm IDs using the following commands in the neo4j browser:
 
-`CREATE CONSTRAINT ON (n:protein) ASSERT n.id IS UNIQUE`
+`CREATE CONSTRAINT FOR (n:protein) REQUIRE n.uid IS UNIQUE`
 
-`CREATE CONSTRAINT ON (n:hmm) ASSERT n.id IS UNIQUE`
+`CREATE CONSTRAINT FOR (n:hmm) REQUIRE n.uid IS UNIQUE`
 
 ## Other MAKE commands
 
