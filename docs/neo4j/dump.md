@@ -1,8 +1,10 @@
-To create a database dump:
+
+## Create a full database dump/backup
 
 ```bash
 
-sg_neoloc='/media/socialgene_nvme/v0_1_5/streptomyces/socialgene_neo4j'
+sg_neoloc='/tmp/location/to/backup/to'
+# mkdir because the docker image will create dirs as root if they don't exist
 mkdir -p $sg_neoloc/backups
 
 docker run \
@@ -19,13 +21,15 @@ docker run \
             neo4j
 ```
 
+## Load a full database dump/backup
+
 And to restore:
 
-
 ```bash
-
-sg_neoloc='/home/chase/Downloads/neo4j_dump/actinobacteria'
+sg_neoloc='/tmp/location/to/backup/to'
 dump_path=${sg_neoloc}/neo4j.dump
+
+# mkdir because the docker image will create dirs as root if they don't exist
 mkdir -p $sg_neoloc/data
 mkdir -p $sg_neoloc/logs
 mkdir -p $sg_neoloc/plugins
@@ -48,10 +52,7 @@ docker run \
 ```
 
 
+## More info
 
+<a href="https://neo4j.com/docs/operations-manual/current/backup-restore/offline-backup/" target="_blank">https://neo4j.com/docs/operations-manual/current/backup-restore/offline-backup/</a>
 
-
-
-More info on Neo4j database dumps:
-
-https://neo4j.com/docs/operations-manual/current/backup-restore/offline-backup/

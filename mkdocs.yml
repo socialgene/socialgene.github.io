@@ -1,12 +1,14 @@
 site_name: socialgene
 site_url: https://chasemc.github.io
+repo_url: https://github.com/socialgene/socialgene.github.io
 nav:
         - "index.md"
         - "System Requirements": "system_requirements.md"
         - "Ultra-Quickstart!": "ultraquickstart/ultraquickstart.md"
 
         - "Building a Database (Nextflow)":
-                  - "Installation": "nextflow/installation.md"
+                  - "Setup": "nextflow/setup.md"
+                  - "Finding Parameter Info": "nextflow/finding_parameter_info.md"
                   - "Inputs": "nextflow/inputs.md"
                   - "Outputs": "nextflow/outputs.md"
                   - "Overview": "nextflow/quickstart.md"
@@ -16,6 +18,7 @@ nav:
                             - "Docker Images": "nextflow/docker_images.md"
         - "Interacting with a Database (Neo4j)":
                   - "Neo4j": "neo4j/advanced_start.md"
+                  - "Database Backups": "neo4j/dump.md"
         - "Web Interface (Django)":
                   - "Setup": "django/django.md"
                   - "Quick start": "django/quickstart.md"
@@ -38,6 +41,7 @@ markdown_extensions:
         - attr_list
 theme:
         name: material
-
+        features:
+                - content.action.edit
 extra_css:
         - stylesheets/extra.css

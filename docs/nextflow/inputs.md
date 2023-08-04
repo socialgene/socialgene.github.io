@@ -1,14 +1,15 @@
-There are a few different ways to input proteins and/or genomes into the Nextflow pipeline.
+There are a few different ways to input proteins and/or genomes into the Nextflow workflow.
 
 ## Local files
 
-
 ### Genomes
-To run the pipeline using already downloaded/local genbank files (e.g. `.gbk`or `.gbff`).
-
-Provide the path to the files via `local_genbank`. This can be a [glob pattern](https://www.digitalocean.com/community/tools/glob). If you have thousands of input files you should provide the path of a single directory that contains all the files and not a glob of the files themselves.
+To run the pipeline using already downloaded/local genbank files (e.g. `.gbk`or `.gbff`) provide the path to the files via `local_genbank`. This can be a [glob pattern](https://www.digitalocean.com/community/tools/glob). 
 
 For example, if `local_genbank='/home/me/input_genome_*.gbk'`
+
+!!! Note 1: If you are entering parameters on the command line and using a glob, make sure enclose the path/glob in single quotes.
+
+> Note 2: The genbank files must already contain protein sequences (SocialGene doesn't currently do any gene/ORF prediction).
 
 ### Proteins
 

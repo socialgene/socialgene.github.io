@@ -1,30 +1,33 @@
 # Overview
 
-## What does this do?
+SocialGene is a complex <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load" target="_blank">ETL</a> workflow centered around analyzing protein and genomic context similarity; built for natural product drug discovery but also with broader applications.
 
-The general flow starts with creating a SocialGene Neo4j database. This is done using the Nextflow pipeline which handles...
+The general flow starts with creating a SocialGene Neo4j database. This is done using the <a href="https://github.com/socialgene/sgnf" target="_blank">Nextflow workflow</a> which handles...
 
 - Downloading proteins and/or genomes from NCBI, MIBiG, etc, or using local genomes (genbank format)
-- Downloading HMM models from multiple sources (or using local HMMs) and upconverting to the latest HMMER format (optional)
-- Creating and HMM-annotating a set of non-redundant proteins from the input proteins/genomes (optional)
-- Comparing input proteins via all-vs-all DIAMOND BLASTp (optional) and/or MMseqs2 clustering (optional)
+- Creating a set of non-redundant proteins from the input proteins/genomes
+- Downloading HMM models from multiple sources (or using local HMMs), creating a non-redundant set of models, and upconverting to the latest HMMER format (optional)
+- HMM-annotating the non-redundant proteins (optional)
+- Comparing the non-redundant proteins via all-vs-all DIAMOND BLASTp (optional)
+- Clustering the non-redundant proteins with MMseqs2 cascaded clustering (optional)
 - Annotating input genomes with antiSMASH (optional)
-- Creating/Transforming all the necessary data and input files for import into a Neo4j graph database
+- Downloading and linking all of NCBI Taxonomy (optional)
+- Creating/Cleaning/Transforming all input and produced data for import into a Neo4j graph database
 - Importing/Creating the Neo4j graph database (optional)
 - And more...
 
-Most steps are optional which allows you to customize your database to your needs.
+Most steps are optional which allows you to customize the output database to your needs.
 
 ## What is the output?
 
 1. Output files for the processing steps. e.g. BLASTp database, MMseqs2 index, non-redundant HMM model file, etc.
-2. All final output files ate tab separated, gzipped files which are imported into Neo4j but could be used 
+2. All outputs files are tab separated, gzipped files which are then imported into Neo4j
 3. A Neo4j database containing all the data and relationships
 
 The Neo4j database can be interacted with in multiple ways including:
 
 1. Through the SocialGene Python package (or Neo4j's Python package or other drivers)
-2. Through SocialGene's Django application (web-based GUI)
+2. Through SocialGene's Django application (web-based GUI) (not yet released)
 3. Using "Neo4j Browser" or directly from a number of other tools that use or have Neo4j plugins (Cytoscape, Gephi, yFiles/yWorks, etc.)
 
 ## Components
