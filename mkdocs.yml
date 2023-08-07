@@ -24,14 +24,23 @@ nav:
         #           - "Quick start": "django/quickstart.md"
         #           - "Advanced": "django/advanced.md"
         #           - "Contributing": "django/contributing.md"
-        # - "Developing":
-        #           - "Python":
-        #                     - "Setup": "developing/python/setup.md"
-        #                     - "Testing": "developing/python/testing.md"
-        # - "Give Feedback": "feedback.md"
+        - "Developing":
+                  - "Python":
+                            - "Setup": "developing/python/setup.md"
+                            - "Classes": "developing/python/classes.md"
+                            - "Testing": "developing/python/testing.md"
+                            - Code Reference: reference/ #
+
+        - "Give Feedback": "feedback.md"
 plugins:
         - search
         - autorefs
+        - gen-files:
+                  scripts:
+                          - docs/gen_ref_pages.py
+        - literate-nav:
+                  nav_file: developing/python/reference/SUMMARY.md
+        - section-index
         - mkdocstrings
 markdown_extensions:
         - attr_list

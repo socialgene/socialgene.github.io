@@ -22,4 +22,3 @@ Install normally, but with update on save:
 # pip install -e .[ci]
 make install
 ```
-
