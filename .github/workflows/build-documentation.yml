@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-          cache: 'pip' # caching pip dependencies
       - run: pip install --no-dependencies socialgene 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
