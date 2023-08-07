@@ -1,7 +1,7 @@
 mkdocs-jupyter
 mkdocs-coverage
 mkdocs-autorefs
-mkdocstrings
+mkdocstrings[python]
 mkdocs-section-index
 mkdocs-literate-nav
 mkdocs_gen_files
