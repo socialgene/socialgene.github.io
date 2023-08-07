@@ -1,6 +1,7 @@
 
 ## Create a full database dump/backup
 
+=== "shell"
 ```bash
 
 sg_neoloc='/tmp/location/to/backup/to'
@@ -25,6 +26,7 @@ docker run \
 
 And to restore:
 
+=== "shell"
 ```bash
 sg_neoloc='/tmp/location/to/backup/to'
 dump_path=${sg_neoloc}/neo4j.dump

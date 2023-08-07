@@ -34,6 +34,7 @@ Satus Checks and Availability:
 
 ### To run locally
 
+=== "shell"
 ```bash
 make create_conda
 conda activate sg_doc_build

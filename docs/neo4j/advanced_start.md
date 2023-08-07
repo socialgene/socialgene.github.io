@@ -10,6 +10,7 @@ You will need to select the amount of memory Neo4j can use, this is set within t
 
 Noe4j can help you determine the correct values. To do so run the following, substituting the amount of RAM you want to dedicate to Neo4j in `ram_to_provide_to_neo4j`
 
+=== "shell"
 ```bash
 ram_to_provide_to_neo4j=800G
 
@@ -33,6 +34,7 @@ For more detailed info on memory settings in Neo4j refer to [the Neo4j memrec do
 An example of launching the database directly:
 Set sg_neoloc below to the "neo4j" directory, this is the directory created by Nextflow workflow containing the folders "import", "data", etc
 
+=== "shell"
 ```bash
 
 sg_neoloc='/media/socialgene_nvme/v0.2.3/refseq/socialgene_neo4j'
@@ -117,6 +119,7 @@ To make SocialGene queries faster you can add a couple indices for protein and h
 
 More make commands can be found by looking through the `Makefile` file or by running
 
+=== "shell"
 ```bash
 make help
 ```

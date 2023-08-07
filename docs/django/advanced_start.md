@@ -4,6 +4,7 @@ Make sure you're in the top SocialGene directory () and have adjusted any necess
 
 Neo4j memory constraints are also set from within the `common_parameters.env` file. See Neo4j memory configuration for info on how to determine optimal values.
 
+=== "shell"
 ```bash
 NEO4J_dbms_memory_pagecache_size=3g
 NEO4J_dbms_memory_heap_initial__size=4g
@@ -14,6 +15,7 @@ NEO4J_dbms_memory_heap_max__size=4g
 
 To start the Django and peripheral docker containers:
 
+=== "shell"
 ```bash
 make django_up
 ```
@@ -26,12 +28,14 @@ To use the app, open a browser and go to the url: [`127.0.0.1:8009`](https://loc
 
 Stop all the containers with
 
+=== "shell"
 ```bash
 make down
 ```
 
 You can check the status of all running containers using the following:
 
+=== "shell"
 ```bash
 docker ps
 ```
@@ -48,6 +52,7 @@ You will need to select the amount of memory Neo4j can use, this is set within t
 
 Noe4j can help you determine the correct values. To do so run the following, substituting the amount of RAM you want to dedicate to Neo4j in `ram_to_provide_to_neo4j`
 
+=== "shell"
 ```bash
 ram_to_provide_to_neo4j=40G
 
@@ -71,6 +76,7 @@ For more detailed info on memory settings in Neo4j refer to [the Neo4j memrec do
 An example of launching the database directly:
 Set sg_neoloc below to the "neo4j" directory, this is the directory containing "import", "data", etc
 
+=== "shell"
 ```bash
 
 sg_neoloc='/home/chase/Documents/socialgene_data/older/mibig2/socialgene_neo4j'
@@ -126,6 +132,7 @@ To make SocialGene queries faster you can add a couple indices for protein and h
 
 More make commands can be found by looking through the `Makefile` file or by running
 
+=== "shell"
 ```bash
 make help
 ```

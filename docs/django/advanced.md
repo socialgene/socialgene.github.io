@@ -23,6 +23,7 @@ Advanced settings available from the cookiecutter template can be found here:
 
 - To create an **superuser account**, use this command:
 
+=== "shell"
 ```bash
 python manage.py createsuperuser
 ```
@@ -33,6 +34,7 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 
 Running type checks with mypy:
 
+=== "shell"
 ```bash
 mypy socialgeneweb
 ```
@@ -41,6 +43,7 @@ mypy socialgeneweb
 
 To run the tests, check your test coverage, and generate an HTML coverage report:
 
+=== "shell"
 ```bash
 coverage run -m pytest
 coverage html
@@ -49,6 +52,7 @@ open htmlcov/index.html
 
 ## Running tests with py.test
 
+=== "shell"
 ```bash
 pytest
 ```
@@ -65,6 +69,7 @@ This app comes with Celery.
 
 To run a celery worker:
 
+=== "shell"
 ```bash
 cd socialgeneweb
 celery -A config.celery_app worker -l info

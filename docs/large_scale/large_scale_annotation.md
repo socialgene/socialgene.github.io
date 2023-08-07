@@ -7,6 +7,7 @@ While Nextflow does have support for HTCondor, CHTC's filesystems aren't configu
 
 
 Copy the HMM models over to SQUID (https://chtc.cs.wisc.edu/uw-research-computing/file-avail-squid.html)
+=== "shell"
 ```bash
 USERNAME='cmclark8'
 HMMPATH='/media/bigdrive2/chase/socialgene/2022_07_13/refseq_test/socialgene_per_run/hmm_cache/socialgene_nr_hmms_file_1_of_1.hmm.gz'
@@ -15,6 +16,7 @@ scp "${HMMPATH}" "${USERNAME}@transfer.chtc.wisc.edu:/squid/${USERNAME}"
 
 
 
+=== "shell"
 ```bash
 USERNAME='cmclark8'
 DATAGLOB='/media/bigdrive2/chase/socialgene/2022_07_13/refseq_test/refseq_nr_protein_fasta_dir/crabhash/fasta_for_chtc/outfolder/*.faa.gz'
@@ -32,6 +34,7 @@ Log into the submit server
 On the sublit server: 
 Create a conda environment to pass to the workers:
 
+=== "shell"
 ```bash
 conda create -n sg_conda bioconda::hmmer=3.3.2 conda-forge::sed conda-forge::gzip 
 
@@ -42,6 +45,7 @@ ls -sh sg_conda.tar.gz
 ```
 
 Clean and recreate output folders:
+=== "shell"
 ```bash
 rm -rf errors outputs sg_input_fasta
 mkdir errors outputs sg_input_fasta
@@ -49,6 +53,7 @@ mkdir errors outputs sg_input_fasta
 
 Create the sample matrix:
 
+=== "shell"
 ```bash
 ls sg_input_fasta > /home/cmclark8/sample_matrix.csv
 sed -i  's/^/socialgene_nr_hmms_file_1_of_1.hmm.gz,/' /home/cmclark8/sample_matrix.csv
@@ -83,6 +88,7 @@ Chnage the permissions of the files on SQUID:
 
 For example (change to your squid username):
 
+=== "shell"
 ```bash
 chmod +r /squid/cmclark8/*
 ```
@@ -91,6 +97,7 @@ chmod +r /squid/cmclark8/*
 
 move files back:
 
+=== "shell"
 ```bash
 USERNAME='cmclark8'
 OUTDIR='/media/bigdrive2/chase/socialgene/2022_07_13/results'
@@ -107,6 +114,7 @@ rsync -avh  \
 
 -------
 
+=== "shell"
 ```bash
 sg_neoloc='/media/bigdrive2/chase/socialgene/2022_07_13/refseq_test/socialgene_neo4j'
 sg_neoloc='/home/chase/neo4j_db/socialgene_neo4j'
@@ -186,6 +194,7 @@ MERGE (a1)-[:IS_TAXON]->(t1);
 
 Remote ssh for the web interface:
 
+=== "shell"
 ```bash
 ifconfig
 ssh -L 7687:172.17.0.1:7687 -L 7474:172.17.0.1:7474 chase@10.130.167.147

@@ -1,6 +1,7 @@
 
 First you need to create directories for postgres and redis data, otherwise docker-compose will create them as root user
 
+=== "shell"
 ```bash
 mkdir local_postgres_data local_postgres_data_backups redis-data
 ```
@@ -9,6 +10,7 @@ You also need to set the environment variable `HMM_LOCATION` to the path of the 
 
 Run the docker compose/build all containers
 
+=== "shell"
 ```bash
 make django_up
 ```
@@ -17,6 +19,7 @@ Another Make command `upq` is a quicker shortcut that also *doesn't* run the bui
 
 Stop all containers
 
+=== "shell"
 ```bash
 make down 
 ```

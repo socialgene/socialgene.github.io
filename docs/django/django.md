@@ -4,6 +4,7 @@ Must be done at least once after running `make up` so the postgres database gets
 
 Run the following at the top directory of socialgene:
 
+=== "shell"
 ```bash
 make manage createsuperuser
 ```

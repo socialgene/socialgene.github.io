@@ -27,6 +27,7 @@ If you're using genomes from NCBI and `ncbi_taxonomy = true` then the NCBI taxon
 
 Set where you want all the files to write to (the `outdir` below), and run the Nextflow pipeline.
 
+=== "shell"
 ```bash
 outdir="/home/chase/Documents/socialgene_data/micromonospora"
 
@@ -64,3 +65,28 @@ A good rule of thumb is to set this process' cpus to `2` as shown here, and to s
 The length of time the pipeline takes relies heavily on the number of cores used (and possibly RAM (when using pyHMMER)), so estimates are difficult. On my work desktop (AMD® Ryzen 9 3900xt 12-core processor × 24 | 62.7 GiB RAM) a single genome will finish in a couple minutes (When starting from scratch, usually downloading PFAM is the longest step), and annotating all Micromonospora (~200 genomes) may take a couple of hours. On our lab's server (100 logical cores | 1 TB RAM ) using 40 logical cores, a couple thousand genomes ran through in just under 24 hours (though this was done while under concurrent heavy use by others).
 
 
+## nf-core GUI
+
+Begin by launching the workflow from the computer you want the coordinating Nextflow process to run.
+
+```
+nf-core launch socialgene/sgnf
+```
+![nf-core c l i launch options](./media/nfcore_cli_launch.png)
+
+Selecting "Command line" will walk you through a somewhat onerous CLI-interface where you can set each of the parameters.
+
+![nf-core c l i inputs](./media/nfcore_cli_inputs.png)
+
+Alternatively, selecting "Web based" will open a web-based GUI where you can enter in parameters and then launch the workflow.
+
+![nfcore help](./media/nfcore_help_web.png)
+
+
+## Nextflow Tower
+
+The pipeline can also be run/managed via Nextflow Tower which provides the ability to launch in a number of compute environments but is beyond the scope of this documentation. See [https://help.tower.nf/latest/#why-nextflow-tower](https://help.tower.nf/23.2/#why-nextflow-tower){: target='_blank'} for more information
+
+![nextflow tower compute options](./media/tower2.png)
+![nextflow tower screenshot](./media/tower.png)
+![nextflow tower run](./media/tower_results.png)

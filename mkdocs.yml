@@ -1,17 +1,16 @@
 site_name: socialgene
 site_url: https://chasemc.github.io
 repo_url: https://github.com/socialgene/socialgene.github.io
+edit_uri: edit/main/docs/
 nav:
         - "index.md"
         - "System Requirements": "system_requirements.md"
         - "Ultra-Quickstart!": "ultraquickstart/ultraquickstart.md"
-
         - "Building a Database (Nextflow)":
-                  - "Setup": "nextflow/setup.md"
-                  - "Finding Parameter Info": "nextflow/finding_parameter_info.md"
+                  - "Installation": "nextflow/installation.md"
                   - "Inputs": "nextflow/inputs.md"
+                  - "Parameters": "nextflow/parameters.md"
                   - "Outputs": "nextflow/outputs.md"
-                  - "Overview": "nextflow/quickstart.md"
                   - "Running the Workflow": "nextflow/running_the_pipeline.md"
                   - "Examples": "nextflow/examples.md"
                   - "Advanced":
@@ -29,19 +28,23 @@ nav:
                             - "Setup": "developing/python/setup.md"
                             - "Testing": "developing/python/testing.md"
         - "Give Feedback": "feedback.md"
-
 plugins:
         - search
         - autorefs
         - mkdocstrings
-#        - mkdocs-coverage:
-#                  page_name: coverage # default
-#                  html_report_dir: htmlcov # default
 markdown_extensions:
         - attr_list
+        - admonition
+        - pymdownx.details
+        - pymdownx.superfences
+        - pymdownx.tabbed:
+                  alternate_style: true
+
 theme:
         name: material
         features:
                 - content.action.edit
+                - content.code.copy
+
 extra_css:
         - stylesheets/extra.css

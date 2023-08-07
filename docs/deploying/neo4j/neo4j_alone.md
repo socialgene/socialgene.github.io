@@ -4,6 +4,7 @@ If you want to start a connection to the neo4j database without Django, etc.
 
 Change the location of the neo4j database (directory containing the `data` directory) in the command below
 
+=== "shell"
 ```bash
 sg_neoloc='/path/to/neo4j/database'
 ```
@@ -17,6 +18,7 @@ Set the `sg_neoloc` variable as shown above and then `mkdir` the missing directo
 
 Then run the following to start the Docker container:
 
+=== "shell"
 ```bash
 sg_neoloc='/path/to/neo4j/database'
 

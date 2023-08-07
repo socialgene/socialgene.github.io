@@ -20,6 +20,7 @@ The nextflow workflow makes heavy use of the Python app (so code is testable and
 
 If you haven't already, create and enter socialgene's conda environment
 
+=== "shell"
 ```bash
 make create_conda
 conda activate socialgene
@@ -29,6 +30,7 @@ Run the nextflow test pipeline. Change the outdirs to the desired locations.
 
 Exectute the below code from socialgene's top directory
 
+=== "shell"
 ```bash
  nextflow run nextflow \
         -profile test \
@@ -49,6 +51,7 @@ BLASTp and MMSEQS inter-protein comparisons can be made be includeing the `--bla
 
 BLASTp is very time/resource consuming and should only be used on limited datasets.
 
+=== "shell"
 ```bash
 nextflow run nextflow \
   -profile test \
@@ -82,22 +85,26 @@ On release, automated continuous integration tests run the pipeline on a full-si
 
 The main SocialGene conda environment contains nextflow so, if you haven't already, download miniconda and then create the SocialGene conda environment
 
+=== "shell"
 ```bash
 conda env create --file https://raw.githubusercontent.com/chasemc/socialgene/main/nextflow/python_environment.yml
 ```
 
+=== "shell"
 ```bash
 conda activate socialgene
 ```
 
 If you want to use the docker image you can create it with the following command:
 
+=== "shell"
 ```bash
 docker build . --tag chasemc/socialgene
 ```
 
 ## Run the Nextflow Pipeline
 
+=== "shell"
 ```bash
 # set the directory all files will be placed in 
 sg_outdir='/Users/chase/Documents/socialgene_test_run2'

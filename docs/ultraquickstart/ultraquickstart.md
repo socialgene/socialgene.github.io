@@ -1,6 +1,6 @@
 ## Preface
 
-This tutorial assumes you already have [Nextflow](/nextflow/setup){: target='_blank'} and [Docker](https://docs.docker.com/get-docker/){: target='_blank'} installed.
+This tutorial assumes you already have [Nextflow](/nextflow/installation){: target='_blank'} and [Docker](https://docs.docker.com/get-docker/){: target='_blank'} installed.
 
 
 ## Create a SocialGene Database
@@ -15,6 +15,7 @@ nextflow pull socialgene/sgnf
 
 Assign `outdir` and `outdir_download_cache` paths below with the paths you want the results to be placed into. Open bash or whatever shell you use, run the commands, and (fingers-crossed) watch the magic happen.
 
+=== "shell"
 ```bash
 outdir='/tmp/socialgene_data/ultraquickstart'
 outdir_download_cache='/tmp/socialgene_data/cache'
@@ -28,10 +29,22 @@ nextflow run socialgene/sgnf \
     -resume
 ```
 
+Note: some parameters have changed since video below was recorded
+<div id="video" class="tabcontent" style="display:inline-block;width: 75%">
+<script id="asciicast-O4eRe3YNVeRPR4ekRZMH0ry3s" src="https://asciinema.org/a/O4eRe3YNVeRPR4ekRZMH0ry3s.js" async></script>
+</div>
+
+#### Nextflow Pipeline Execution Time
+
+The length of time the pipeline takes relies heavily on the number of cores used and disk speed, so estimates are difficult. On my work desktop (AMD® Ryzen 9 3900xt 12-core processor) the `ultraquickstart` config (two genomes) will run start-to-finish in a couple of minutes. For these small runs, downloading Docker images and PFAM can be the longest step if they aren't already cached. MMseqs2 and DIAMOND run times are dependent on the number of input proteins, while HMM annotation depends on both the number of input proteins and number of HMM models.
+
+Annotating all Micromonospora genomes (~200) with multiple HMM databases (e.g. PFAM, TIGRFAM, etc.) may take a couple hours. On our server (100 logical cores | 1 TB RAM ) (while also under heavy use by others) using slurm and maximum of 40 logical cores, a couple thousand *Streptomyces* genomes ran through in just under 24 hours.
+
 ## Launch the database
 
 Notice that the `sg_neoloc` path below is the `$outdir` path from above plus `/socialgene_neo4j` (the newly created neo4j database directory)
 
+=== "shell"
 ```bash
 sg_neoloc='/tmp/socialgene_data/ultraquickstart/socialgene_neo4j'
 

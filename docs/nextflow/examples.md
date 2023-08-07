@@ -13,6 +13,7 @@ To use a built-in configuration file (the ones listed at the link above) use the
 
 For example, the command below will use the `ultraquickstart` configuration file (<a href="https://github.com/socialgene/sgnf/blob/main/conf/examples/ultraquickstart.config" target="_blank">https://github.com/socialgene/sgnf/blob/main/conf/examples/ultraquickstart.config</a>) and run the processes using Docker.
 
+=== "shell"
 ```bash
 nextflow run socialgene/sgnf -r main \
     -profile ultraquickstart,docker 

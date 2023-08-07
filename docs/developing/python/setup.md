@@ -2,12 +2,14 @@
 
 Download the SocialGene repository
 
+=== "shell"
 ```bash
 git clone https://github.com/chasemc/socialgene.git
 ```
 
 Move to the SocialGene directory....
 
+=== "shell"
 ```bash
 cd socialgene
 ```
@@ -15,14 +17,9 @@ Open whatever environment you usually work in (venv, conda, etc.) that works wit
 
 Install normally, but with update on save:
 
+=== "shell"
 ```bash
-# pip3 install -e .
+# pip install -e .[ci]
 make install
 ```
 
-Install with pytest, dev tools, and update on save:
-
-```bash
-# python3 -m pip install --upgrade pip setuptools wheel numpy pytest-cov
-make pipinstall_test_extras
-```
