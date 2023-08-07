@@ -16,18 +16,19 @@ nav:
                   - "Advanced":
                             - "Docker Images": "nextflow/docker_images.md"
         - "Interacting with a Database (Neo4j)":
-                  - "Neo4j": "neo4j/advanced_start.md"
-                  - "Database Backups": "neo4j/dump.md"
-        - "Web Interface (Django)":
-                  - "Setup": "django/django.md"
-                  - "Quick start": "django/quickstart.md"
-                  - "Advanced": "django/advanced.md"
-                  - "Contributing": "django/contributing.md"
-        - "Developing":
-                  - "Python":
-                            - "Setup": "developing/python/setup.md"
-                            - "Testing": "developing/python/testing.md"
-        - "Give Feedback": "feedback.md"
+                  - "Database Launch": "neo4j/database_launch.md"
+                  - "Database Backups": "neo4j/database_backups.md"
+                  - "Interacting": "neo4j/interacting.md"
+        # - "Web Interface (Django)":
+        #           - "Setup": "django/django.md"
+        #           - "Quick start": "django/quickstart.md"
+        #           - "Advanced": "django/advanced.md"
+        #           - "Contributing": "django/contributing.md"
+        # - "Developing":
+        #           - "Python":
+        #                     - "Setup": "developing/python/setup.md"
+        #                     - "Testing": "developing/python/testing.md"
+        # - "Give Feedback": "feedback.md"
 plugins:
         - search
         - autorefs
