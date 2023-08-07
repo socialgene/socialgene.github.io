@@ -1,4 +1,4 @@
-site_name: socialgene
+site_name: "SocialGene"
 site_url: https://chasemc.github.io
 repo_url: https://github.com/socialgene/socialgene.github.io
 edit_uri: edit/main/docs/
@@ -29,7 +29,7 @@ nav:
                             - "Setup": "developing/python/setup.md"
                             - "Classes": "developing/python/classes.md"
                             - "Testing": "developing/python/testing.md"
-                            - Code Reference: reference/ #
+                            - Auto-Generated Reference: reference/ #
 
         - "Give Feedback": "feedback.md"
 plugins:
@@ -55,6 +55,8 @@ theme:
         features:
                 - content.action.edit
                 - content.code.copy
+        logo: media/socialgene.png
+        favicon: media/single.png
 
 extra_css:
         - stylesheets/extra.css
