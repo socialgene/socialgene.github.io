@@ -1,0 +1,8 @@
+mkdocs-jupyter
+mkdocs-coverage
+mkdocs-autorefs
+mkdocstrings
+mkdocs-section-index
+mkdocs-literate-nav
+mkdocs_gen_files
+socialgene
