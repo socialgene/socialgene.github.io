@@ -55,19 +55,6 @@ Socialgene should be cited as:
 TODO:
 
 
-Additionally, any run of the Nextflow pipeline will create a citations of all additional software used:
-
-```
-$results_path/socialgene_per_run/pipeline_info/software_versions.yml
-```
-TODO: /home/chase/Documents/github/kwan_lab/socialgene/sgnf/citation.py
-
-
-
-TODO: For info on HMMs see:
-https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/
-
-
 ## Let us know you're using SocialGene!
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScxcCMSdkd9xB6azZl7k8HRfkFegK2KmYZR8C0yoHfp4wQMYA/viewform?embedded=true" width="640" height="2122" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
