@@ -53,7 +53,7 @@ nf-core download socialgene/sgnf
 ```
 
 
-## Install SocialGene Python Library
+## Install SocialGene Python Library (optional)
 
 === "shell"
 ```
