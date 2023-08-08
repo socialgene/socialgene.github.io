@@ -107,3 +107,6 @@ To use your own HMM model use the parameter: `--custom_hmm_file`
 e.g. `--custom_hmm_file '/path/to/my/hmm.hmm'`
 
 The file should be a valid HMMER HMM model.
+
+For info on HMMs see:
+https://www.ebi.ac.uk/training/online/courses/pfam-creating-protein-families/
