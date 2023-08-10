@@ -15,7 +15,7 @@ Additionally, and especially, for larger runs, a significant amount of disk spac
 
 To get some idea for a larger run:
 
-When ~8,500 *Streptomyces* genomes were used as input for a SocialGene workflow that runs hmmsearch using the antismash, amrfinder, pfam, resfams,and tigrfam HMM databases; MMseqs2 clustering to 90,70, and 50; incorporates all of NCBI taxonomy; incorporates all MIBiG BGCs; and runs antiSMASH on all input genomes...
+When ~8,500 *Streptomyces* genomes were used as input for a SocialGene workflow that runs hmmsearch using the antismash, amrfinder, pfam, resfams,and tigrfam HMM databases; MMseqs2 clustering to 90, 70, and 50; incorporates all of NCBI taxonomy; incorporates all MIBiG BGCs; and runs antiSMASH on all input genomes...
 
 It required ~90 GB of scratch space (temp files that allow -resume in Nextflow but can be deleted after a successful run). And an additional ~90 GB in the specified `outdir`.
 
