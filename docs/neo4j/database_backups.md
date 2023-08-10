@@ -60,3 +60,6 @@ docker run \
 
 <a href="https://neo4j.com/docs/operations-manual/current/backup-restore/offline-backup/" target="_blank">https://neo4j.com/docs/operations-manual/current/backup-restore/offline-backup/</a>
 
+## Ultraquickstart Example 
+
+A database dump generated from the ultraquickstart example can be found at [https://github.com/socialgene/sgnf/releases/download/v0.2.4/ultraquickstart.dump](https://github.com/socialgene/sgnf/releases/download/v0.2.4/ultraquickstart.dump)
