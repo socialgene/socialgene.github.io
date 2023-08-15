@@ -67,7 +67,10 @@ echo 'apoc.import.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
 # Set import/export of files from database to $sg_neoloc/import
 echo 'server.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
 echo 'server.directories.export=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+```
 
+=== "shell"
+```bash
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
