@@ -2,7 +2,7 @@
 
 You will need to select the amount of memory Neo4j will be allowed to use, this is set within the `NEO4J MEMORY LIMITS` section of the `common_parameters.env` file; or through the docker run command.
 
-It's hard to estimate but for optimal performance `ram_to_provide_to_neo4j` below should probably be around the size of the database on disk +10-20%.
+It's hard to estimate but for optimal performance `ram_to_provide_to_neo4j` below should probably be around the size of the database on disk +10-20%, however it will run with significantly less than that (e.g. 500GB database has been run with 32 GB, though not tested under heavy use)
 
 The size of the database on disk can be found by looking at the size of the "socialgene_neo4j/data" directory which is located where you specified `--outdir` when running the Nextflow workflow:
 
