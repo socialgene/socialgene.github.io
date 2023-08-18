@@ -51,10 +51,46 @@ docker run \
     neo4j/neo4j-admin:5.7.0 \
         neo4j-admin database load \
             --from-path=. \
+            neo4j         
+```
+
+## Rehydrate faster please
+
+The rehydration step is quite I/O intensive. Therefore, if you have enough RAM, it can be beneficial to copy the database dump file onto RAM first and then load/rehydrate so that read and write won't be occuring on the same hard drive. On Ubuntu Linux would look something like this:
+
+=== "shell"
+```bash
+sg_neoloc='database/location/socialgene_neo4j'
+dump_path='path/to/neo4j.dump'
+
+# copy the dump file to RAM
+mkdir -p /dev/shm/social_gene_dump
+cp $dump_path /dev/shm/social_gene_dump
+
+# Change the $dump_path
+dump_path='/dev/shm/social_gene_dump/neo4j.dump'
+
+# mkdir just in case, because the docker image will create dirs as root if they don't exist
+mkdir -p $sg_neoloc/data
+mkdir -p $sg_neoloc/logs
+mkdir -p $sg_neoloc/plugins
+
+docker run \
+    --user=$(id -u):$(id -g) \
+    --interactive \
+    --tty \
+    --rm \
+    --volume=$sg_neoloc/data:/var/lib/neo4j/data \
+    --volume=$sg_neoloc/plugins:/var/lib/neo4j/plugins \
+    --volume=$sg_neoloc/logs:/var/lib/neo4j/logs \
+    --volume=$dump_path:/var/lib/neo4j/neo4j.dump \
+    --env NEO4J_AUTH=neo4j/test \
+    neo4j/neo4j-admin:5.7.0 \
+        neo4j-admin database load \
+            --from-path=. \
             neo4j
             
 ```
-
 
 ## More info
 
