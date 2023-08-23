@@ -26,7 +26,7 @@ docker run \
 
 ## Load a full database dump/backup
 
-And to restore:
+Given a Neo4j database dump file at path `database/location/socialgene_neo4j/neo4j.dump`
 
 === "shell"
 ```bash
