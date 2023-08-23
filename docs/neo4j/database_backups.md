@@ -26,17 +26,19 @@ docker run \
 
 ## Load a full database dump/backup
 
-Given a Neo4j database dump file at path `database/location/socialgene_neo4j/neo4j.dump`
+Given a Neo4j database dump file at path `$dump_path`, rehydrate the database inside directory `$sg_neoloc`.
 
 === "shell"
 ```bash
-sg_neoloc='database/location/socialgene_neo4j'
-dump_path=${sg_neoloc}/neo4j.dump
+dump_path=path/to/neo4j.dump
+sg_neoloc='path/to/new/db/directory'
 
-# mkdir just in case, because the docker image will create dirs as root if they don't exist
+# mkdir because the docker image will create dirs as root if they don't exist
 mkdir -p $sg_neoloc/data
 mkdir -p $sg_neoloc/logs
 mkdir -p $sg_neoloc/plugins
+mkdir -p $sg_neoloc/conf
+mkdir -p $sg_neoloc/import
 
 docker run \
     --user=$(id -u):$(id -g) \
@@ -54,14 +56,18 @@ docker run \
             neo4j         
 ```
 
+!!! note
+    The script below will create the database named as "neo4j", no matter what the $dump_path file name is. To change the db name you would have to modify both `--volume=$dump_path:/var/lib/neo4j/neo4j.dump \` and the last `neo4j` in the Docker command. Unless you are familiar with Neo4j, and want to load multiple databases at once, you probably should leave it as "neo4j".
+
+
 ## Rehydrate faster please
 
-The rehydration step is quite I/O intensive. Therefore, if you have enough RAM, it can be beneficial to copy the database dump file onto RAM first and then load/rehydrate so that read and write won't be occuring on the same hard drive. On Ubuntu Linux would look something like this:
+The rehydration step is quite I/O intensive. Therefore, for larger database dumps, and if you have enough spare RAM, it may be beneficial to copy the database dump file onto RAM first and then load/rehydrate so that read and write won't be occuring on the same hard drive. On Ubuntu Linux that would look something like this:
 
 === "shell"
 ```bash
-sg_neoloc='database/location/socialgene_neo4j'
-dump_path='path/to/neo4j.dump'
+dump_path=path/to/neo4j.dump
+sg_neoloc='path/to/new/db/directory'
 
 # copy the dump file to RAM
 mkdir -p /dev/shm/social_gene_dump
@@ -70,10 +76,12 @@ cp $dump_path /dev/shm/social_gene_dump
 # Change the $dump_path
 dump_path='/dev/shm/social_gene_dump/neo4j.dump'
 
-# mkdir just in case, because the docker image will create dirs as root if they don't exist
+# mkdir because the docker image will create dirs as root if they don't exist
 mkdir -p $sg_neoloc/data
 mkdir -p $sg_neoloc/logs
 mkdir -p $sg_neoloc/plugins
+mkdir -p $sg_neoloc/conf
+mkdir -p $sg_neoloc/import
 
 docker run \
     --user=$(id -u):$(id -g) \
