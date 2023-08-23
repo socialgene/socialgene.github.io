@@ -107,3 +107,8 @@ docker run \
 ## Ultraquickstart Example 
 
 A database dump generated from the ultraquickstart example can be found at [https://github.com/socialgene/sgnf/releases/download/v0.2.4/ultraquickstart.dump](https://github.com/socialgene/sgnf/releases/download/v0.2.4/ultraquickstart.dump)
+
+
+## Launch the Database
+
+After hydrating a database dump you can launch it using the directions in [Database Launch](/neo4j/database_launch)
