@@ -47,9 +47,13 @@ Exectute the below code from socialgene's top directory
 
 ## Including BLASTp and/or MMSEQS2
 
-BLASTp and MMSEQS inter-protein comparisons can be made be includeing the `--blastp` and/or `--mmseqs2` flags.
+BLASTp and MMSEQS inter-protein comparisons can be made be includeing the `--blastp` and/or `--mmseqs_steps` flags. The `--mmseqs_steps` arguement expects a comma-delimited string which represents the sequence identity levels to cluster to. For example, to cluster to 90%, 70% and 50% you would use `--mmseqs_steps '90,70,50'`. Additional DIAMONS and MMSEQS2 settings can be applied via [nf-core - style args](https://nf-co.re/docs/usage/configuration#understanding-and-modifying-tool-arguments). 
 
-BLASTp is very time/resource consuming and should only be used on limited datasets.
+!!!note
+    It is necessary to to put the the numbers in `--mmseqs_steps '90,70,50'` in descending order
+
+!!!note
+    BLASTp is very time/resource consuming and should only be used on limited datasets.
 
 === "shell"
 ```bash
@@ -61,7 +65,7 @@ nextflow run nextflow \
   -resume \
   --fasta_splits 1 \
   --blastp true \
-  --mmseqs2 true
+  --mmseqs_steps '90,70,50'
 ```
 
 ## Introduction
