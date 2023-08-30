@@ -6,10 +6,10 @@ One of the easiest methods to start playing with your database is viewing it wit
 
 A running Neo4j database can be queried from within Cytoscape for visualizing and creating presentable subgraphs
 
-Cytoscape can be downloaded here: [https://cytoscape.org/download.html](https://cytoscape.org/download.html)
-And the Neo4j Cytoscape plugin can be installed from here: [https://apps.cytoscape.org/apps/cytoscapeneo4jplugin](https://apps.cytoscape.org/apps/cytoscapeneo4jplugin)
+- Cytoscape can be downloaded here: [https://cytoscape.org/download.html](https://cytoscape.org/download.html)
+- And the Neo4j Cytoscape plugin can be installed from here: [https://apps.cytoscape.org/apps/cytoscapeneo4jplugin](https://apps.cytoscape.org/apps/cytoscapeneo4jplugin)
 
-
+### Import into Cytoscape
 In Cytoscape go to the `Apps` menu at the top of the window and select `Cypher Queries`, within that submenu select `Import Cypher Query`. A popup should appear asking for credentials. These are what were provided as arguments to the Docker command that started up the database. If you didn't modify the Docker command then all you should have to enter is the password which is `test12345`
 
 ![nextflow help](./media/cytoscape_credentials.png)
