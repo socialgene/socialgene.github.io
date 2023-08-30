@@ -14,7 +14,7 @@ In Cytoscape go to the `Apps` menu at the top of the window and select `Cypher Q
 
 ![nextflow help](./media/cytoscape_credentials.png)
 
-Then enter your beautiful Cypher query (in this example all nodes and relationships 3-hops from BGC0000001 will be imported)
+Then enter your beautiful Cypher query (in this example all nodes and relationships within 3-hops from BGC0000001 will be imported)
 ![nextflow help](./media/cytoscape_query.png)
 
 And witness your creation
