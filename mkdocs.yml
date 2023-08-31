@@ -19,6 +19,8 @@ nav:
                   - "Database Launch": "neo4j/database_launch.md"
                   - "Database Backups": "neo4j/database_backups.md"
                   - "Interacting": "neo4j/interacting.md"
+        - "Nodes and Relationships":
+                  - "Identifiers": "nodes_and_relationships/about_the_database.md"
         # - "Web Interface (Django)":
         #           - "Setup": "django/django.md"
         #           - "Quick start": "django/quickstart.md"
