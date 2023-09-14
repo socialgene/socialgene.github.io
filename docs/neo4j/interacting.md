@@ -2,6 +2,10 @@
 
 One of the easiest methods to start playing with your database is viewing it within Neo4j's web browser (but you'll need to know the [graph query language "Cypher"](https://neo4j.com/docs/getting-started/cypher-intro){: target='_blank'})
 
+## From VSCode 
+
+You can connect to and query the database from inside VSCode editor. This is helpful for writing/debugging code that interacts with the database. See: https://neo4j.com/developer-blog/run-cypher-without-leaving-your-ide-with-neo4j-vscode-extension/
+
 ## Cytoscape
 
 A running Neo4j database can be queried from within Cytoscape for visualizing and creating presentable subgraphs
