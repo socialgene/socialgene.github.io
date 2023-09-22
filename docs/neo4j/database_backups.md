@@ -1,5 +1,5 @@
 
-## Create a full database dump/backup
+## Restore from full database dump/backup
 
 The following takes a database named "neo4j" found in `database/location/socialgene_neo4j` and creates a single dump file at `database/location/socialgene_neo4j/backups/neo4j.dump`. While it will be smaller than the space occupied by the `database/location/socialgene_neo4j` directory, the file can still be quite large.
 
