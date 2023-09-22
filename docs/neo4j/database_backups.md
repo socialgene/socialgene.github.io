@@ -6,7 +6,7 @@ The following takes a database named "neo4j" found in `database/location/socialg
 === "shell"
 ```bash
 
-sg_neoloc='database/location/socialgene_neo4j'
+sg_neoloc='/database/location/socialgene_neo4j'
 # mkdir because the docker image will create dirs as root if they don't exist
 mkdir -p $sg_neoloc/backups
 
@@ -30,8 +30,8 @@ Given a Neo4j database dump file at path `$dump_path`, rehydrate the database in
 
 === "shell"
 ```bash
-dump_path=path/to/neo4j.dump
-sg_neoloc='path/to/new/db/directory'
+dump_path='/path/to/neo4j.dump
+sg_neoloc='/path/to/new/db/directory'
 
 # mkdir because the docker image will create dirs as root if they don't exist
 mkdir -p $sg_neoloc/data
@@ -66,8 +66,8 @@ The rehydration step is quite I/O intensive. Therefore, for larger database dump
 
 === "shell"
 ```bash
-dump_path=path/to/neo4j.dump
-sg_neoloc='path/to/new/db/directory'
+dump_path='/path/to/neo4j.dump'
+sg_neoloc='/path/to/new/db/directory'
 
 # copy the dump file to RAM
 mkdir -p /dev/shm/social_gene_dump
