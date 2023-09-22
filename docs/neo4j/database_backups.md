@@ -1,5 +1,5 @@
 
-## Restore from full database dump/backup
+## Create a full database dump/backup
 
 The following takes a database named "neo4j" found in `database/location/socialgene_neo4j` and creates a single dump file at `database/location/socialgene_neo4j/backups/neo4j.dump`. While it will be smaller than the space occupied by the `database/location/socialgene_neo4j` directory, the file can still be quite large.
 
@@ -24,7 +24,7 @@ docker run \
             neo4j
 ```
 
-## Load a full database dump/backup
+## Restore from a full database dump/backup
 
 Given a Neo4j database dump file at path `$dump_path`, rehydrate the database inside directory `$sg_neoloc`.
 
@@ -60,7 +60,7 @@ docker run \
     The script below will create the database named as "neo4j", no matter what the $dump_path file name is. To change the db name you would have to modify both `--volume=$dump_path:/var/lib/neo4j/neo4j.dump \` and the last `neo4j` in the Docker command. Unless you are familiar with Neo4j, and want to load multiple databases at once, you probably should leave it as "neo4j".
 
 
-## Rehydrate faster please
+## Restore faster please
 
 The rehydration step is quite I/O intensive. Therefore, for larger database dumps, and if you have enough spare RAM, it may be beneficial to copy the database dump file onto RAM first and then load/rehydrate so that read and write won't be occuring on the same hard drive. On Ubuntu Linux that would look something like this:
 
