@@ -6,7 +6,9 @@ Most nodes have a "uid" property which stand for unique identifier. It is unique
 
 For proteins the uid is the sha512t24u hash of the protein sequence, this means proteins with identical amino acid sequences are stored only once and referenced by this uid.
 
-Protein nodes also have a CRC64 hash which can be used to cross-reference UniProt. The original protein ID from the input FASTA/Genome is found not on the redundant protein nodes but on the relationship between the node representing the nucleotide sequence the protein was found on, and the non-redundant protein. A query 
+Protein nodes also have a CRC64 hash which can be used to cross-reference UniProt. The original protein ID from the input FASTA/Genome is found not on the redundant protein nodes but on the relationship between the node representing the nucleotide sequence the protein was found on, and the non-redundant protein.
+
+ An example of retrieving an input protein's original ID:
 
 === "Cypher"
 
