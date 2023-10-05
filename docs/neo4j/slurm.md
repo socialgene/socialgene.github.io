@@ -1,4 +1,3 @@
-## Running the Database with Slurm
 
 Save the script below as `launch-sg-database.sh`.
 

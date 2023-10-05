@@ -23,7 +23,7 @@ nav:
                   - "Database Launch": "neo4j/database_launch.md"
                   - "Database Backups": "neo4j/database_backups.md"
                   - "Interacting": "neo4j/interacting.md"
-                  - "Run DB in Slurm": "neo4j/slurm.md"
+                  - "Running the Database with Slurm": "neo4j/slurm.md"
 
         # - "Web Interface (Django)":
         #           - "Setup": "django/django.md"
