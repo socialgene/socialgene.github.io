@@ -1,6 +1,6 @@
 site_name: "SocialGene"
 site_url: https://chasemc.github.io
-repo_url: https://github.com/socialgene/socialgene.github.io
+repo_url: https://github.com/socialgene
 edit_uri: edit/main/docs/
 nav:
         - "index.md"
