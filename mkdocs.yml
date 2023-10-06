@@ -17,8 +17,6 @@ nav:
                             - "Docker Images": "nextflow/docker_images.md"
         - "Nodes and Relationships":
                   - "Identifiers": "nodes_and_relationships/about_the_database.md"
-                  - "Nodes": "nodes_and_relationships/nodes.md"
-                  - "Relationships": "nodes_and_relationships/relationships.md"
                   - "Schema": "nodes_and_relationships/schema.md"
         - "Interacting with a Database (Neo4j)":
                   - "Database Launch": "neo4j/database_launch.md"

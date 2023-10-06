@@ -1,3 +1,11 @@
+The schema below is auto-generatated via the [SocialGene Python Package](https://github.com/socialgene/sgpy).
+
+```shell
+# pip install socialgene
+sg_nodes --markdown
+sg_relationships --markdown
+```
+
 ## Nodes
 
 |      Label       |                                                                                Description                                                                                 | NF results subdirectory |       Neo4j header file       |
@@ -37,3 +45,4 @@
 |     SOURCE_DB     |               (:hmm)-[:SOURCE_DB]->(:hmm_source)              |         hmm_info        | hmm_source_relationships.header |
 |    SUBROLE_ANN    |       (:tigrfam_role)-[:SUBROLE_ANN]->(:tigrfam_subrole)      |       tigrfam_info      |  tigrfamrole_to_subrole.header  |
 |    TAXON_PARENT   |               (:taxid)-[:TAXON_PARENT]->(:taxid)              |     taxdump_process     |      taxid_to_taxid.header      |
+
