@@ -1,6 +1,6 @@
 site_name: "SocialGene"
 site_url: https://chasemc.github.io
-repo_url: https://github.com/socialgene
+repo_url: https://github.com/socialgene/socialgene.github.io
 edit_uri: edit/main/docs/
 nav:
         - "index.md"
@@ -23,7 +23,6 @@ nav:
                   - "Database Backups": "neo4j/database_backups.md"
                   - "Interacting": "neo4j/interacting.md"
                   - "Running the Database with Slurm": "neo4j/slurm.md"
-
         # - "Web Interface (Django)":
         #           - "Setup": "django/django.md"
         #           - "Quick start": "django/quickstart.md"
@@ -35,6 +34,7 @@ nav:
                             - "Classes": "developing/python/classes.md"
                             - "Testing": "developing/python/testing.md"
                             - Auto-Generated Reference: reference/ #
+        - "Presentations": "presentations/presentations.md"
 
         - "Give Feedback": "feedback.md"
 
