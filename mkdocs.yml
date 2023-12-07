@@ -69,7 +69,7 @@ extra_css:
 extra:
         analytics:
                 provider: google
-                property: G-6NNX9NGJ09
+                property: G-YSRY3GE6B5
                 feedback:
                         title: Was this page helpful?
                         ratings:
