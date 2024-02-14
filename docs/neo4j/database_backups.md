@@ -30,7 +30,7 @@ Given a Neo4j database dump file at path `$dump_path`, rehydrate the database in
 
 === "shell"
 ```bash
-dump_path='/path/to/neo4j.dump
+dump_path='/path/to/neo4j.dump'
 sg_neoloc='/path/to/new/db/directory'
 
 # mkdir because the docker image will create dirs as root if they don't exist
