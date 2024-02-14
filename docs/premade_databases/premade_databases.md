@@ -1,7 +1,7 @@
 I have precomputed a handful of databases I thought the natural product community would find helpful. Some of these are quite large so read the requirments for each *before* downloading.
 
 
-You will need at least enough disk space to accommodate the dump file and rehydrated database. The dump file is not required after rehydrating (can be deleted) but if you have enough space might it be good to keep around in case you want to rebuild the database from scratch without downloading again (e.g. you make a lot of custom database modifications but mess up and to start over).
+You will need at least enough disk space to accommodate the dump file and rehydrated database. The dump file is not required after rehydrating (can be deleted) but if you have enough space might it be good to keep around in case you want to rebuild the database from scratch without downloading again (e.g. you make a lot of custom database modifications but mess up and want to start over).
 
 - All of RefSeq
   - Database dump file: ~220 GB
