@@ -4,26 +4,26 @@ I have precomputed a handful of databases I thought the natural product communit
 You will need at least enough disk space to accommodate the dump file and rehydrated database. The dump file is not required after rehydrating (can be deleted) but if you have enough space might it be good to keep around in case you want to rebuild the database from scratch without downloading again (e.g. you make a lot of custom database modifications but mess up and to start over).
 
 - All of RefSeq
-- Database dump file: ~220 GB
-- Rehydrated database: ~650 GB
-- Rehydrated database with indexes: ~663 GB
-- 343,381 genomes + MIBiG BGCs
+  - Database dump file: ~220 GB
+  - Rehydrated database: ~650 GB
+  - Rehydrated database with indexes: ~663 GB
+  - 343,381 genomes + MIBiG BGCs
 
 
 - All RefSeq Actinomycetota
-- Database dump file is ~30 GB
-- Rehydrated database is ~86 GB
--  genomes + MIBiG BGCs
+  - Database dump file is ~30 GB
+  - Rehydrated database is ~86 GB
+  -  genomes + MIBiG BGCs
 
 - All RefSeq *Streptomyces*
-- Database dump file is ~8 GB
-- Rehydrated database is ~23 GB
--  genomes + MIBiG BGCs
+  - Database dump file is ~8 GB
+  - Rehydrated database is ~23 GB
+  -  genomes + MIBiG BGCs
 
 - All RefSeq *Micromonospora*
-- Database dump file is ~1 GB
-- Rehydrated database is ~3 GB
--  genomes + MIBiG BGCs
+  - Database dump file is ~1 GB
+  - Rehydrated database is ~3 GB
+  -  genomes + MIBiG BGCs
 
 
 All of the above databases were built with the same set of HMM models.
