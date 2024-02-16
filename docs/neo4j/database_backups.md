@@ -57,7 +57,7 @@ docker run \
 ```
 
 !!! note
-    The script below will create the database named as "neo4j", no matter what the $dump_path file name is. To change the db name you would have to modify both `--volume=$dump_path:/var/lib/neo4j/neo4j.dump \` and the last `neo4j` in the Docker command. Unless you are familiar with Neo4j, and want to load multiple databases at once, you probably should leave it as "neo4j".
+    The script below will create the database named as "neo4j", no matter what the $dump_path file name is. To change the db name you would have to modify both `--volume=$dump_path:/var/lib/neo4j/neo4j.dump \` and the last `neo4j` in the Docker command. Unless you are familiar with Neo4j, and want to load multiple databases at once, you should probably leave it as "neo4j".
 
 
 ## Restore faster please
