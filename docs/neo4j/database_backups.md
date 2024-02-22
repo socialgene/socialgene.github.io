@@ -18,7 +18,7 @@ docker run \
     --volume=$sg_neoloc/data:/data \
     --volume=$sg_neoloc/backups:/backups \
     --env NEO4J_AUTH=neo4j/test \
-    neo4j/neo4j-admin:5.7.0 \
+    neo4j/neo4j-admin:5.16.0 \
         neo4j-admin database dump \
             --to-path=/backups \
             neo4j
@@ -50,7 +50,7 @@ docker run \
     --volume=$sg_neoloc/logs:/var/lib/neo4j/logs \
     --volume=$dump_path:/var/lib/neo4j/neo4j.dump \
     --env NEO4J_AUTH=neo4j/test \
-    neo4j/neo4j-admin:5.7.0 \
+    neo4j/neo4j-admin:5.16.0 \
         neo4j-admin database load \
             --from-path=. \
             neo4j         
@@ -93,7 +93,7 @@ docker run \
     --volume=$sg_neoloc/logs:/var/lib/neo4j/logs \
     --volume=$dump_path:/var/lib/neo4j/neo4j.dump \
     --env NEO4J_AUTH=neo4j/test \
-    neo4j/neo4j-admin:5.7.0 \
+    neo4j/neo4j-admin:5.16.0 \
         neo4j-admin database load \
             --from-path=. \
             neo4j

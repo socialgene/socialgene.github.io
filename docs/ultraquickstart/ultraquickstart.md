@@ -65,7 +65,7 @@ docker run \
         --env NEO4J_server_memory_heap_max__size='4G' \
         --env NEO4J_server_memory_pagecache_size='3G' \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:5.7.0
+    neo4j:5.16.0
 ```
 
 If you get some error about ports being unavailable/used, you'll want to change the line `-p7474:7474 -p7687:7687`.

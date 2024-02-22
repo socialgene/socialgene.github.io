@@ -30,7 +30,7 @@ sg_neoloc='/tmp/sg'
 #     --env NEO4J_AUTH=neo4j/test \
 #     --interactive \
 #     --tty \
-#     neo4j:5.7.0 \
+#     neo4j:5.16.0 \
 #         neo4j-admin \
 #             server memory-recommendation \
 #                 --memory=$ram_to_provide_to_neo4j \
@@ -72,6 +72,6 @@ docker run \
         --env NEO4J_server_memory_heap_max__size=$NEO4J_server_memory_heap_max__size \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:5.7.0
+    neo4j:5.16.0
 
 ```

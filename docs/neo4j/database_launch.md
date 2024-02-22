@@ -23,7 +23,7 @@ docker run \
     --env NEO4J_AUTH=neo4j/test \
     --interactive \
     --tty \
-    neo4j:5.7.0 \
+    neo4j:5.16.0 \
         neo4j-admin \
             server memory-recommendation \
                 --memory=$ram_to_provide_to_neo4j \
@@ -88,7 +88,7 @@ docker run \
         --env NEO4J_server_memory_heap_max__size=$NEO4J_server_memory_heap_max__size \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:5.7.0
+    neo4j:5.16.0
 
 ```
 
@@ -113,7 +113,7 @@ docker run \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
         --env NEO4J_ACCEPT_LICENSE_AGREEMENT='yes' \
-    neo4j:5.7.0-enterprise
+    neo4j:5.16.0-enterprise
 ```
 
 <div id="video" class="tabcontent" style="display:inline-block;width: 75%">
