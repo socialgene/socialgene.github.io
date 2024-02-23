@@ -2,8 +2,8 @@ The schema below is auto-generatated via the [SocialGene Python Package](https:/
 
 ```shell
 # pip install socialgene
-sg_nodes --markdown
-sg_relationships --markdown
+sg_schema --nodes  --markdown
+sg_schema --rels  --markdown
 ```
 
 ## Nodes
