@@ -32,6 +32,7 @@ Given a Neo4j database dump file at path `$dump_path`, rehydrate the database in
 ```bash
 dump_path='/path/to/neo4j.dump'
 sg_neoloc='/path/to/new/db/directory'
+pipeline_version='latest'
 
 # mkdir because the docker image will create dirs as root if they don't exist
 mkdir -p $sg_neoloc/data
@@ -45,19 +46,19 @@ docker run \
     --interactive \
     --tty \
     --rm \
-    --volume=$sg_neoloc/data:/var/lib/neo4j/data \
-    --volume=$sg_neoloc/plugins:/var/lib/neo4j/plugins \
-    --volume=$sg_neoloc/logs:/var/lib/neo4j/logs \
-    --volume=$dump_path:/var/lib/neo4j/neo4j.dump \
+    --volume=$sg_neoloc/data:/opt/conda/bin/neo4j/data \
+    --volume=$sg_neoloc/plugins:/opt/conda/bin/neo4j/plugins \
+    --volume=$sg_neoloc/logs:/opt/conda/bin/neo4j/logs \
+    --volume=$dump_path:/opt/conda/bin/neo4j/neo4j.dump \
     --env NEO4J_AUTH=neo4j/test \
-    neo4j/neo4j-admin:5.16.0 \
+    chasemc2/sgnf-sgpy:$pipeline_version \
         neo4j-admin database load \
             --from-path=. \
             neo4j         
 ```
 
 !!! note
-    The script below will create the database named as "neo4j", no matter what the $dump_path file name is. To change the db name you would have to modify both `--volume=$dump_path:/var/lib/neo4j/neo4j.dump \` and the last `neo4j` in the Docker command. Unless you are familiar with Neo4j, and want to load multiple databases at once, you should probably leave it as "neo4j".
+    The script below will create the database named as "neo4j", no matter what the $dump_path file name is. To change the db name you would have to modify both `--volume=$dump_path:/opt/conda/bin/neo4j/neo4j.dump \` and the last `neo4j` in the Docker command. Unless you are familiar with Neo4j, and want to load multiple databases at once, you should probably leave it as "neo4j".
 
 
 ## Restore faster please
@@ -68,6 +69,7 @@ The rehydration step is quite I/O intensive. Therefore, for larger database dump
 ```bash
 dump_path='/path/to/neo4j.dump'
 sg_neoloc='/path/to/new/db/directory'
+pipeline_version='latest'
 
 # copy the dump file to RAM
 mkdir -p /dev/shm/social_gene_dump
@@ -88,12 +90,12 @@ docker run \
     --interactive \
     --tty \
     --rm \
-    --volume=$sg_neoloc/data:/var/lib/neo4j/data \
-    --volume=$sg_neoloc/plugins:/var/lib/neo4j/plugins \
-    --volume=$sg_neoloc/logs:/var/lib/neo4j/logs \
-    --volume=$dump_path:/var/lib/neo4j/neo4j.dump \
+    --volume=$sg_neoloc/data:/opt/conda/bin/neo4j/data \
+    --volume=$sg_neoloc/plugins:/opt/conda/bin/neo4j/plugins \
+    --volume=$sg_neoloc/logs:/opt/conda/bin/neo4j/logs \
+    --volume=$dump_path:/opt/conda/bin/neo4j/neo4j.dump \
     --env NEO4J_AUTH=neo4j/test \
-    neo4j/neo4j-admin:5.16.0 \
+    chasemc2/sgnf-sgpy:$pipeline_version \
         neo4j-admin database load \
             --from-path=. \
             neo4j

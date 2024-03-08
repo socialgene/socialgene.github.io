@@ -118,14 +118,15 @@ rsync -avh  \
 ```bash
 sg_neoloc='/media/bigdrive2/chase/socialgene/2022_07_13/refseq_test/socialgene_neo4j'
 sg_neoloc='/home/chase/neo4j_db/socialgene_neo4j'
+pipeline_version='latest'
 
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
-    -v $sg_neoloc/data:/data \
-    -v $sg_neoloc/logs:/logs \
-    -v $sg_neoloc/import:/var/lib/neo4j/import \
-    -v $sg_neoloc/plugins:/plugins \
+    -v $sg_neoloc/data:/opt/conda/bin/neo4j/data \
+    -v $sg_neoloc/logs:/opt/conda/bin/neo4j/logs \
+    -v $sg_neoloc/import:/opt/conda/bin/neo4j/import \
+    -v $sg_neoloc/plugins:/opt/conda/bin/neo4j/plugins \
     --env NEO4J_AUTH=neo4j/test \
        --env NEO4J_apoc_export_file_enabled=true \
        --env NEO4J_apoc_import_file_enabled=true \
@@ -138,7 +139,7 @@ docker run \
        --env NEO4J_dbms_memory_pagecache_size='557000m' \
        --env NEO4J_dbms_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
        --env NEO4J_dbms_connector_bolt_address='0.0.0.0:7687' \
-    neo4j:4.4.7
+    chasemc2/sgnf-sgpy:$pipeline_version
 
 ```
 

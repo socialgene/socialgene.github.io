@@ -80,14 +80,15 @@ Set sg_neoloc below to the "neo4j" directory, this is the directory containing "
 ```bash
 
 sg_neoloc='/home/chase/Documents/socialgene_data/older/mibig2/socialgene_neo4j'
+pipeline_version='latest'
 
 mkdir -p $sg_neoloc/conf
 echo 'apoc.export.file.enabled=true' > $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.enabled=true' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.export.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
-echo 'server.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
-echo 'server.directories.export=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+echo 'server.directories.import=/opt/conda/bin/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+echo 'server.directories.export=/opt/conda/bin/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
 
 # curl https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/5.1.0/apoc-5.1.0-extended.jar > $sg_neoloc/plugins/apoc-5.1.0-extended.jar
 # wget https://github.com/xerial/sqlite-jdbc/releases/download/3.40.1.0/sqlite-jdbc-3.40.1.0.jar
@@ -96,11 +97,11 @@ echo 'server.directories.export=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
-    -v $sg_neoloc/data:/data \
-    -v $sg_neoloc/logs:/logs \
-    -v $sg_neoloc/import:/var/lib/neo4j/import \
-    -v $sg_neoloc/plugins:/plugins \
-    -v $sg_neoloc/conf:/var/lib/neo4j/conf \
+    -v $sg_neoloc/data:/opt/conda/bin/neo4j/data \
+    -v $sg_neoloc/logs:/opt/conda/bin/neo4j/logs \
+    -v $sg_neoloc/import:/opt/conda/bin/neo4j/import \
+    -v $sg_neoloc/plugins:/opt/conda/bin/neo4j/plugins \
+    -v $sg_neoloc/conf:/opt/conda/bin/neo4j/conf \
         --env NEO4J_AUTH=neo4j/test \
         --env NEO4J_PLUGINS='["apoc"]' \
         --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*, \
@@ -110,7 +111,7 @@ docker run \
         --env NEO4J_server_memory_heap_max__size='100g' \
         --env NEO4J_server_memory_pagecache_size='800g' \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:5.1.0
+    chasemc2/sgnf-sgpy:$pipeline_version
 
 ```
 

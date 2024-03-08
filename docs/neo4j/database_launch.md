@@ -65,20 +65,22 @@ echo 'apoc.import.file.enabled=true' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.export.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
 echo 'apoc.import.file.use_neo4j_config=false' >> $sg_neoloc/conf/apoc.conf
 # Set import/export of files from database to $sg_neoloc/import
-echo 'server.directories.import=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
-echo 'server.directories.export=/var/lib/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+echo 'server.directories.import=/opt/conda/bin/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
+echo 'server.directories.export=/opt/conda/bin/neo4j/import' >> $sg_neoloc/conf/neo4j.conf
 ```
 
 === "shell"
 ```bash
+pipeline_version='latest'
+
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
     -v $sg_neoloc/data:/data \
     -v $sg_neoloc/logs:/logs \
-    -v $sg_neoloc/import:/var/lib/neo4j/import \
+    -v $sg_neoloc/import:/opt/conda/bin/neo4j/import \
     -v $sg_neoloc/plugins:/plugins \
-    -v $sg_neoloc/conf:/var/lib/neo4j/conf \
+    -v $sg_neoloc/conf:/opt/conda/bin/neo4j/conf \
         --env NEO4J_AUTH=neo4j/test12345 \
         --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
         --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.*, \
@@ -88,21 +90,22 @@ docker run \
         --env NEO4J_server_memory_heap_max__size=$NEO4J_server_memory_heap_max__size \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    neo4j:5.16.0
+    chasemc2/sgnf-sgpy:$pipeline_version
 
 ```
 
 If you have paid for the enterprise version of Neo4j you can use the following:
 
 ```
+version="latest"
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
     -v $sg_neoloc/data:/data \
     -v $sg_neoloc/logs:/logs \
-    -v $sg_neoloc/import:/var/lib/neo4j/import \
+    -v $sg_neoloc/import:/opt/conda/bin/neo4j/import \
     -v $sg_neoloc/plugins:/plugins \
-    -v $sg_neoloc/conf:/var/lib/neo4j/conf \
+    -v $sg_neoloc/conf:/opt/conda/bin/neo4j/conf \
         --env NEO4J_AUTH=neo4j/test12345 \
         --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
         --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.*, \
@@ -113,7 +116,7 @@ docker run \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
         --env NEO4J_ACCEPT_LICENSE_AGREEMENT='yes' \
-    neo4j:5.16.0-enterprise
+    chasemc2/sgnf-sgpy:$version
 ```
 
 <div id="video" class="tabcontent" style="display:inline-block;width: 75%">

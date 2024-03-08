@@ -46,47 +46,48 @@ sg_schema --rels  --markdown
 
 ## Relationships
 
-|        Label        |                        Relationship                        | NF results subdirectory |        Neo4j header file        |
-|:------------------- |:---------------------------------------------------------- |:----------------------- |:------------------------------- |
-| ALTERNATIVE_PARENTS |       (npatlas)-[:ALTERNATIVE_PARENTS]->(classyfire)       |           None          |               None              |
-|     ASSEMBLES_TO    |          (nucleotide)-[:ASSEMBLES_TO]->(assembly)          |       genomic_info      |     assembly_to_locus.header    |
-|      ANNOTATES      |               (hmm)-[:ANNOTATES]->(protein)                |     parsed_domtblout    |   protein_to_hmm_header.header  |
-|        BLASTP       |               (protein)-[:BLASTP]->(protein)               |      diamond_blastp     |          blastp.header          |
-|       CONTAINS      |    (chemical_compound)-[:CONTAINS]->(chemical_fragment)    |           None          |               None              |
-|    DIRECT_PARENT    |          (npatlas)-[:DIRECT_PARENT]->(classyfire)          |           None          |               None              |
-|       ENCODES       |             (nucleotide)-[:ENCODES]->(protein)             |       genomic_info      |     locus_to_protein.header     |
-|         FROM        |       (gnps_library_spectrum)-[:FROM]->(instrument)        |           None          |               None              |
-|         FROM        |             (gnps_cluster)-[:FROM]->(assembly)             |           None          |               None              |
-|         FROM        |       (gnps_library_spectrum)-[:FROM]->(ion_source)        |           None          |               None              |
-|         FROM        |      (gnps_library_spectrum)-[:FROM]->(gnps_organism)      |           None          |               None              |
-|        GO_ANN       |              (hmm_source)-[:GO_ANN]->(goterm)              |       tigrfam_info      |       tigrfam_to_go.header      |
-|     GOTERM_RELS     |             (goterm)-[:GOTERM_RELS]->(goterm)              |         goterms         |         go_to_go.header         |
-|         HAS         |              (npatlas)-[:HAS]->(publication)               |           None          |               None              |
-|         HAS         |         (npatlas)-[:HAS]->(gnps_library_spectrum)          |           None          |               None              |
-|         HAS         |                 (npatlas)-[:HAS]->(npmrd)                  |           None          |               None              |
-|         IS_A        |         (npatlas)-[:IS_A]->(npclassifier_pathway)          |           None          |               None              |
-|         IS_A        |             (classyfire)-[:IS_A]->(classyfire)             |           None          |               None              |
-|         IS_A        |          (npatlas)-[:IS_A]->(npclassifier_class)           |           None          |               None              |
-|         IS_A        |  (gnps_library_spectrum)-[:IS_A]->(npclassifier_pathway)   |           None          |               None              |
-|       IS_TAXON      |              (assembly)-[:IS_TAXON]->(taxid)               |       genomic_info      |     assembly_to_taxid.header    |
-|         IS_A        | (gnps_library_spectrum)-[:IS_A]->(npclassifier_superclass) |           None          |               None              |
-|         IS_A        |   (gnps_library_spectrum)-[:IS_A]->(npclassifier_class)    |           None          |               None              |
-|         IS_A        |    (gnps_library_spectrum)-[:IS_A]->(chemical_compound)    |           None          |               None              |
-|         IS_A        |           (npatlas)-[:IS_A]->(chemical_compound)           |           None          |               None              |
-|  INTERMEDIATE_NODES |       (npatlas)-[:INTERMEDIATE_NODES]->(classyfire)        |           None          |               None              |
-|         IS_A        |        (npatlas)-[:IS_A]->(npclassifier_superclass)        |           None          |               None              |
-|     LIBRARY_HIT     |   (gnps_cluster)-[:LIBRARY_HIT]->(gnps_library_spectrum)   |           None          |               None              |
-|     LOWEST_CLASS    |          (npatlas)-[:LOWEST_CLASS]->(classyfire)           |           None          |               None              |
-|       MMSEQS2       |              (protein)-[:MMSEQS2]->(protein)               |     mmseqs2_cluster     |          mmseqs2.header         |
-|  MOLECULAR_NETWORK  |    (gnps_cluster)-[:MOLECULAR_NETWORK]->(gnps_cluster)     |           None          |               None              |
-|     MAINROLE_ANN    |     (tigrfam_role)-[:MAINROLE_ANN]->(tigrfam_mainrole)     |       tigrfam_info      |  tigrfamrole_to_mainrole.header |
-|       PRODUCES      |               (taxid)-[:PRODUCES]->(npatlas)               |           None          |               None              |
-|       PRODUCES      |             (assembly)-[:PRODUCES]->(npatlas)              |           None          |               None              |
-|    PROTEIN_TO_GO    |            (protein)-[:PROTEIN_TO_GO]->(goterm)            |       protein_info      |       protein_to_go.header      |
-|       ROLE_ANN      |          (hmm_source)-[:ROLE_ANN]->(tigrfam_role)          |       tigrfam_info      |      tigrfam_to_role.header     |
-|       SYNONYM       |              (classyfire)-[:SYNONYM]->(chebi)              |           None          |               None              |
-|      SOURCE_DB      |              (hmm)-[:SOURCE_DB]->(hmm_source)              |         hmm_info        | hmm_source_relationships.header |
-|       SIMILAR       |    (chemical_compound)-[:SIMILAR]->(chemical_compound)     |           None          |               None              |
-|     SUBROLE_ANN     |      (tigrfam_role)-[:SUBROLE_ANN]->(tigrfam_subrole)      |       tigrfam_info      |  tigrfamrole_to_subrole.header  |
-|     TAXON_PARENT    |              (taxid)-[:TAXON_PARENT]->(taxid)              |     taxdump_process     |      taxid_to_taxid.header      |
+|        Label        |                            Relationship                           | NF results subdirectory |        Neo4j header file        |
+|:------------------- |:----------------------------------------------------------------- |:----------------------- |:------------------------------- |
+|     ASSEMBLES_TO    |              (nucleotide)-[:ASSEMBLES_TO]->(assembly)             |       genomic_info      |     assembly_to_locus.header    |
+|      ANNOTATES      |                   (hmm)-[:ANNOTATES]->(protein)                   |     parsed_domtblout    |   protein_to_hmm_header.header  |
+| ALTERNATIVE_PARENTS |           (npatlas)-[:ALTERNATIVE_PARENTS]->(classyfire)          |           None          |               None              |
+|        BLASTP       |                   (protein)-[:BLASTP]->(protein)                  |      diamond_blastp     |          blastp.header          |
+|       CONTAINS      | (chemical_compound)-[:CONTAINS]->(chemical_compound:substructure) |           None          |               None              |
+|       CONTAINS      |        (chemical_compound)-[:CONTAINS]->(chemical_fragment)       |           None          |               None              |
+|    DIRECT_PARENT    |              (npatlas)-[:DIRECT_PARENT]->(classyfire)             |           None          |               None              |
+|       ENCODES       |                 (nucleotide)-[:ENCODES]->(protein)                |       genomic_info      |     locus_to_protein.header     |
+|         FROM        |           (gnps_library_spectrum)-[:FROM]->(instrument)           |           None          |               None              |
+|         FROM        |           (gnps_library_spectrum)-[:FROM]->(ion_source)           |           None          |               None              |
+|         FROM        |          (gnps_library_spectrum)-[:FROM]->(gnps_organism)         |           None          |               None              |
+|         FROM        |                 (gnps_cluster)-[:FROM]->(assembly)                |           None          |               None              |
+|     GOTERM_RELS     |                 (goterm)-[:GOTERM_RELS]->(goterm)                 |         goterms         |         go_to_go.header         |
+|        GO_ANN       |                  (hmm_source)-[:GO_ANN]->(goterm)                 |       tigrfam_info      |       tigrfam_to_go.header      |
+|         HAS         |                  (npatlas)-[:HAS]->(publication)                  |           None          |               None              |
+|         HAS         |             (npatlas)-[:HAS]->(gnps_library_spectrum)             |           None          |               None              |
+|         HAS         |                     (npatlas)-[:HAS]->(npmrd)                     |           None          |               None              |
+|  INTERMEDIATE_NODES |           (npatlas)-[:INTERMEDIATE_NODES]->(classyfire)           |           None          |               None              |
+|         IS_A        |                 (classyfire)-[:IS_A]->(classyfire)                |           None          |               None              |
+|         IS_A        |        (gnps_library_spectrum)-[:IS_A]->(chemical_compound)       |           None          |               None              |
+|         IS_A        |      (gnps_library_spectrum)-[:IS_A]->(npclassifier_pathway)      |           None          |               None              |
+|         IS_A        |     (gnps_library_spectrum)-[:IS_A]->(npclassifier_superclass)    |           None          |               None              |
+|         IS_A        |               (npatlas)-[:IS_A]->(chemical_compound)              |           None          |               None              |
+|         IS_A        |       (gnps_library_spectrum)-[:IS_A]->(npclassifier_class)       |           None          |               None              |
+|         IS_A        |            (npatlas)-[:IS_A]->(npclassifier_superclass)           |           None          |               None              |
+|       IS_TAXON      |                  (assembly)-[:IS_TAXON]->(taxid)                  |       genomic_info      |     assembly_to_taxid.header    |
+|         IS_A        |             (npatlas)-[:IS_A]->(npclassifier_pathway)             |           None          |               None              |
+|         IS_A        |              (npatlas)-[:IS_A]->(npclassifier_class)              |           None          |               None              |
+|     LIBRARY_HIT     |       (gnps_cluster)-[:LIBRARY_HIT]->(gnps_library_spectrum)      |           None          |               None              |
+|     LOWEST_CLASS    |              (npatlas)-[:LOWEST_CLASS]->(classyfire)              |           None          |               None              |
+|  MOLECULAR_NETWORK  |        (gnps_cluster)-[:MOLECULAR_NETWORK]->(gnps_cluster)        |           None          |               None              |
+|       MMSEQS2       |                  (protein)-[:MMSEQS2]->(protein)                  |     mmseqs2_cluster     |          mmseqs2.header         |
+|     MAINROLE_ANN    |         (tigrfam_role)-[:MAINROLE_ANN]->(tigrfam_mainrole)        |       tigrfam_info      |  tigrfamrole_to_mainrole.header |
+|    PROTEIN_TO_GO    |                (protein)-[:PROTEIN_TO_GO]->(goterm)               |       protein_info      |       protein_to_go.header      |
+|       PRODUCES      |                 (assembly)-[:PRODUCES]->(npatlas)                 |           None          |               None              |
+|       PRODUCES      |                   (taxid)-[:PRODUCES]->(npatlas)                  |           None          |               None              |
+|       ROLE_ANN      |              (hmm_source)-[:ROLE_ANN]->(tigrfam_role)             |       tigrfam_info      |      tigrfam_to_role.header     |
+|       SIMILAR       |        (chemical_compound)-[:SIMILAR]->(chemical_compound)        |           None          |               None              |
+|      SOURCE_DB      |                  (hmm)-[:SOURCE_DB]->(hmm_source)                 |         hmm_info        | hmm_source_relationships.header |
+|     SUBROLE_ANN     |          (tigrfam_role)-[:SUBROLE_ANN]->(tigrfam_subrole)         |       tigrfam_info      |  tigrfamrole_to_subrole.header  |
+|       SYNONYM       |                  (classyfire)-[:SYNONYM]->(chebi)                 |           None          |               None              |
+|     TAXON_PARENT    |                  (taxid)-[:TAXON_PARENT]->(taxid)                 |     taxdump_process     |      taxid_to_taxid.header      |
 

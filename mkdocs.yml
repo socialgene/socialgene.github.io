@@ -35,15 +35,13 @@ nav:
                             - "Testing": "developing/python/testing.md"
                             - Auto-Generated Reference: reference/ #
         - "Presentations": "presentations/presentations.md"
-
+        - "Precomputed Databases": 
+                        - "Precomputed Databases": "precomputed_databases/precomputed_databases.md"
         - "Give Feedback": "feedback.md"
 
 plugins:
         - search
         - autorefs
-        - gen-files:
-                  scripts:
-                          - docs/gen_ref_pages.py
         - literate-nav:
                   nav_file: developing/python/reference/SUMMARY.md
         - section-index

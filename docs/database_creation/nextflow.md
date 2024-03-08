@@ -123,21 +123,3 @@ nextflow run nextflow \
     -resume 
 ```
 
-sg_outdir="/home/chase/socialgene_results"
-
-neoloc='/Users/chase/Documents/socialgene_test_run/neo/neo4j'
-neoloc='/home/chase/Documents/test/extra/neo/neo4j'
-
-docker run \
-    -p7474:7474 -p7687:7687 \
-    -v $neoloc/data:/data \
-    -v $neoloc/logs:/logs \
-    -v $neoloc/import:/var/lib/neo4j/import \
-    -v $neoloc/plugins:/plugins \
-    --env NEO4J_AUTH=neo4j/test \
-       --env NEO4J_dbms_allow__upgrade=true \
-       --env NEO4J_apoc_export_file_enabled=true \
-       --env NEO4J_apoc_import_file_enabled=true \
-       --env NEO4J_apoc_import_file_use__neo4j__config=true \
-       --env NEO4JLABS_PLUGINS=\[\"apoc\"\] \
-     neo4j:4.4.7
