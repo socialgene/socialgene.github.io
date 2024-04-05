@@ -12,7 +12,7 @@ You will need at least enough disk space to accommodate the dump file and rehydr
 - All RefSeq antiSAMSH-7.0 BGCs
     - Database dump file is ~10 GB
     - Rehydrated database is ~29 GB
-    - 307,469 genomes / 2,105,746 BGCs + MIBiG BGCs 
+    - 2,105,746 BGCs from 307,469 genomes + MIBiG BGCs 
 
 - All RefSeq Actinomycetota
     - Database dump file is ~30 GB
