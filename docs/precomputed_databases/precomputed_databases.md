@@ -9,21 +9,25 @@ You will need at least enough disk space to accommodate the dump file and rehydr
     - Rehydrated database with indexes: ~663 GB
     - 343,381 genomes + MIBiG BGCs
 
+- All RefSeq antiSAMSH-7.0 BGCs
+    - Database dump file is ~9.6 GB
+    - Rehydrated database is ~29 GB
+    - 307,469 genomes / 2,105,746 BGCs + MIBiG BGCs 
 
 - All RefSeq Actinomycetota
     - Database dump file is ~30 GB
     - Rehydrated database is ~86 GB
-    -  genomes + MIBiG BGCs
+    - 29,479 genomes + MIBiG BGCs
 
 - All RefSeq *Streptomyces*
     - Database dump file is ~8 GB
     - Rehydrated database is ~23 GB
-    -  genomes + MIBiG BGCs
+    - 3,087 genomes + MIBiG BGCs
 
 - All RefSeq *Micromonospora*
     - Database dump file is ~1 GB
     - Rehydrated database is ~3 GB
-    -  genomes + MIBiG BGCs
+    - 314 genomes + MIBiG BGCs
 
 
 All of the above databases were built with the same set of HMM models.
