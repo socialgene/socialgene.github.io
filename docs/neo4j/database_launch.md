@@ -17,13 +17,14 @@ Noe4j can help you determine memory settings based on a given total RAM to make 
 === "shell"
 ```
 ram_to_provide_to_neo4j=12G
+pipeline_version='latest'
 
 docker run \
     --user="$(id -u)":"$(id -g)" \
     --env NEO4J_AUTH=neo4j/test \
     --interactive \
     --tty \
-    neo4j:5.16.0 \
+    chasemc2/sgnf-sgpy:$pipeline_version \
         neo4j-admin \
             server memory-recommendation \
                 --memory=$ram_to_provide_to_neo4j \
@@ -97,7 +98,8 @@ docker run \
 If you have paid for the enterprise version of Neo4j you can use the following:
 
 ```
-version="latest"
+pipeline_version='latest'
+
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
@@ -116,7 +118,7 @@ docker run \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
         --env NEO4J_ACCEPT_LICENSE_AGREEMENT='yes' \
-    chasemc2/sgnf-sgpy:$version
+    chasemc2/sgnf-sgpy:$pipeline_version
 ```
 
 <div id="video" class="tabcontent" style="display:inline-block;width: 75%">
