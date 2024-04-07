@@ -98,8 +98,6 @@ docker run \
 If you have paid for the enterprise version of Neo4j you can use the following:
 
 ```
-pipeline_version='latest'
-
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
@@ -118,7 +116,7 @@ docker run \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
         --env NEO4J_ACCEPT_LICENSE_AGREEMENT='yes' \
-    chasemc2/sgnf-sgpy:$pipeline_version
+    neo4j:5.17.0-enterprise
 ```
 
 <div id="video" class="tabcontent" style="display:inline-block;width: 75%">
