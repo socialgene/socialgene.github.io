@@ -103,9 +103,9 @@ docker run \
     -p7474:7474 -p7687:7687 \
     -v $sg_neoloc/data:/data \
     -v $sg_neoloc/logs:/logs \
-    -v $sg_neoloc/import:/opt/conda/bin/neo4j/import \
+    -v $sg_neoloc/import:/var/lib/neo4j/import \
     -v $sg_neoloc/plugins:/plugins \
-    -v $sg_neoloc/conf:/opt/conda/bin/neo4j/conf \
+    -v $sg_neoloc/conf:/var/lib/neo4j/conf \
         --env NEO4J_AUTH=neo4j/test12345 \
         --env NEO4J_PLUGINS='["apoc", "graph-data-science"]' \
         --env NEO4J_dbms_security_procedures_unrestricted=algo.*,apoc.*,n10s.*,gds.*, \
