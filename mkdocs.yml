@@ -34,9 +34,12 @@ nav:
                             - "Classes": "developing/python/classes.md"
                             - "Testing": "developing/python/testing.md"
                             - Auto-Generated Reference: reference/ #
-        - "Presentations": "presentations/presentations.md"
         - "Precomputed Databases": 
-                        - "Precomputed Databases": "precomputed_databases/precomputed_databases.md"
+                        - "Version: 2023_v0.4.1": 
+                            - general: "precomputed_databases/2023_v0.4.1/general.md"
+                            - aws: "precomputed_databases/2023_v0.4.1/aws.md"
+                            - dryad: "precomputed_databases/2023_v0.4.1/dryad.md"
+        - "Presentations": "presentations/presentations.md"
         - "Give Feedback": "feedback.md"
 
 plugins:

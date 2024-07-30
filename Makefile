@@ -6,9 +6,9 @@ help : Makefile
 ## DOCUMENTATION BUILDING/SERVING
 ##
 
-create_conda: 
-	conda create --name sg_doc_build python mkdocs mkdocstrings  mkdocs-material -y
-	# conda activate sg_doc_build
+pipify: 
+	pip install mkdocs mkdocstrings mkdocs-material mkdocs-literate-nav mkdocs-section-index "mkdocstrings[python]" socialgene
+
 
 
 ## doc_build	:	Build the mkdocs documentation
@@ -18,4 +18,6 @@ build:
 ## doc_serve	:	Serve the mkdocs documentation locally
 serve: 
 	mkdocs serve
+
+
 
