@@ -67,5 +67,5 @@ All of the above databases were built with the same set of HMM models, these are
 
 ## Instructions for downloading data from...
 
-- [Dryad](../dryad)
-- [AWS S3](../aws)
+- [Dryad](../dryad.md)
+- [AWS S3](../aws.md)
