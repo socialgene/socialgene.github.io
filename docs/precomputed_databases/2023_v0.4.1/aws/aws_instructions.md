@@ -28,7 +28,7 @@ The instance is created with an attached EBS volume that is formatted and mounte
 
 - ssh into the instance (replace the .pem filepath below with the one you downloaded in the "key pair (login)" step above and the public DNS (e.g. `ec2-111-11-11-111.compute-1.amazonaws.com`) of your instance)
 
-`ssh -i /home/chase/.aws/socialgene-image.pem ec2-user@ec2-111-11-11-111.compute-1.amazonaws.com`
+`ssh -i socialgene-image.pem ec2-user@ec2-111-11-11-111.compute-1.amazonaws.com`
 
 `ssh -i REPLACE-ME ec2-user@REPLACE-ME`
 
