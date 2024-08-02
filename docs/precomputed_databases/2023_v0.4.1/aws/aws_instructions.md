@@ -137,7 +137,9 @@ sudo start neo4j
 
 # Access Neo4j
 
-Now there is a running SocialGene database on the EC2 instance. From here you can:
+Now there is a running SocialGene database on the EC2 instance. The default username and password for the Neo4j browser are `neo4j`. On first login you will be prompted to change the password.
+
+ From here you can:
 
 - Download SocialGene's Python package and use the `socialgene` command line tool to interact with the database from within the EC2 instance.
 - Modify the security group settings to allow access to the Neo4j browser from your IP address and access the Neo4j browser from your local machine.
@@ -149,4 +151,20 @@ Now there is a running SocialGene database on the EC2 instance. From here you ca
     - You can then access the Neo4j browser at `http://localhost:7474` in your local browser.
 
 
+Any example Cypher queries from the documentation can be run in the Neo4j browser. For example, to get 10 genome assemblies you can run the following query:
+
+```cypher
+MATCH (b:assembly) RETURN b LIMIT 10
+```
+
+You will probably want to add indexes to the database. This can be done by installing the SocialGene Python package and then running `sg_index` in the command line. For example, to add indexes for the assembly, nucleotide, protein, and taxid nodes you can run the following command:
+
+```sh
+
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=neo4j
+NEO4J_URI=bolt://localhost:7687 # change this if you are not running on localhost
+
+sg_index --labels assembly nucleotide protein taxid
+```
 
