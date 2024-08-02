@@ -37,8 +37,10 @@ nav:
         - "Precomputed Databases": 
                         - "Version: 2023_v0.4.1": 
                             - general: "precomputed_databases/2023_v0.4.1/general.md"
-                            - aws: "precomputed_databases/2023_v0.4.1/aws.md"
-                            - dryad: "precomputed_databases/2023_v0.4.1/dryad.md"
+                            - aws:
+                                - data: "precomputed_databases/2023_v0.4.1/aws/aws.md"
+                                - instructions: "precomputed_databases/2023_v0.4.1/aws/aws_instructions.md"
+                            - dryad: "precomputed_databases/2023_v0.4.1/dryad/dryad.md"
         - "Presentations": "presentations/presentations.md"
         - "Give Feedback": "feedback.md"
 

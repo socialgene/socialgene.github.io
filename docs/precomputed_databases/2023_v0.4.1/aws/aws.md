@@ -166,10 +166,10 @@ The difference between this and the Dryad-hosted databases is that the Dryad-hos
 
 ### Flat files
 
-The TSV flat files are included in the `import` directory of the `refseq` database directory and may be useful for building custom databases (including non-Neo4j) or other analyses. The associations of individual flat files to their column header files are in the tables below. All of the flat files are gzip compressed even if the `.gz` extension is not present in the filename.
+The TSV flat files included in the `import` directory of the `refseq` database directory may be useful for building custom databases (including non-Neo4j databases) or other analyses. The associations of individual flat files to their column header files are in the tables below. All of the flat files are gzip compressed even if the `.gz` extension is not present in the filename.
 
 
-The paths in the table below start with the `import` directory which  is located in the `refseq` database directory (`2023_v0.4.1/refseq/import`).
+The paths in the table below start with the `import` directory which is located in the `refseq` database directory (`2023_v0.4.1/refseq/import`).
 
 
 
