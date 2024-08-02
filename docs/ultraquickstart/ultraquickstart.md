@@ -1,6 +1,6 @@
 ## Preface
 
-This tutorial assumes you already have [Nextflow](/nextflow/installation){: target='_blank'} and [Docker](https://docs.docker.com/get-docker/){: target='_blank'} installed.
+This tutorial assumes you already have [Nextflow](/nextflow/installation) and [Docker](https://docs.docker.com/get-docker/){: target='_blank'} installed.
 
 
 ## Create a SocialGene Database

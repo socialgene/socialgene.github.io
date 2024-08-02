@@ -12,11 +12,14 @@ Install the latest version of the AWS CLI using the instructions on the [AWS CLI
 First, download one of the database dump files from the AWS S3 bucket ([files listed below](#files-explanation)). For example, to download the *Micromonospora* database dump file to the current directory:
 
 ```bash
-aws s3 cp s3://socialgene/2023_v0.4.1/micromonospora/neo4j_db_micromonospora_base.dump .
+aws s3 cp s3://socialgene-open-data/2023_v0.4.1/micromonospora/neo4j_db_micromonospora_base.dump .
 ```
 
-Then follow the instructions for [restoring from a full database dump/backup](../../../neo4j/database_backups/#restore-from-a-full-database-dumpbackup) to rehydrate the Neo4j database. Note that the instructions use Docker, so you will need to have Docker installed or [manually install Neo4j](https://neo4j.com/docs/operations-manual/current/installation/).
+Then follow the instructions for [restoring from a full database dump/backup](../../../../neo4j/database_backups/#restore-from-a-full-database-dumpbackup) to rehydrate the Neo4j database. Note that the instructions use Docker, so you will need to have Docker installed or [manually install Neo4j](https://neo4j.com/docs/operations-manual/current/installation/).
 
+
+docs/neo4j/database_backups.md
+/docs/precomputed_databases/2023_v0.4.1/aws/aws.md
 
 ### Using Neo4j Enterprise Edition
 
@@ -25,24 +28,6 @@ Ensure you have a valid license for Neo4j Enterprise Edition. Install the latest
 Follow the directions at [https://neo4j.com/docs/operations-manual/current/backup-restore/restore-backup/#restore-cloud-storage](https://neo4j.com/docs/operations-manual/current/backup-restore/restore-backup/#restore-cloud-storage) for restoring a database directly from cloud storage.
 
 ## Files Explanation
-
-### Database files
-
-The included database dumps and disk space requirements are described [here](../general/).
-
-The paths to just the dumps are:
-
-- All RefSeq:
-    - `s3://socialgene/2023_v0.4.1/refseq/neo4j_db_refseq_base.dump`
-- All RefSeq Actinomycetota:
-    - `s3://socialgene/2023_v0.4.1/actinomycetota/neo4j_db_actinomycetota_base.dump`
-- All RefSeq Streptomyces:
-    - `s3://socialgene/2023_v0.4.1/streptomyces/neo4j_db_streptomyces_base.dump`
-- All RefSeq Micromonospora:
-    - `s3://socialgene/2023_v0.4.1/micromonospora/neo4j_db_micromonospora_base.dump`
-- All RefSeq antiSMASH-7.0 BGCs:
-    - `s3://socialgene/2023_v0.4.1/refseq_antismash_bgcs/neo4j_db_refseq_antismash_bgcs_base.dump`
-
 
 ### All files
 
@@ -165,11 +150,35 @@ The following files are included in the AWS S3 bucket:
 ```
 
 
-The difference between this and the Dryad-hosted databases is that the Dryad-hosted full RefSeq database is split into multiple parts. The AWS-hosted databases are not split into multiple parts. Additionally, the AWS-hosted databases include the flat file TSVs that are used to build the full SocialGene RefSeq Neo4j database. 
+The difference between this and the Dryad-hosted databases is that the Dryad-hosted full RefSeq database is split into multiple parts. The AWS-hosted databases are not split into multiple parts. Additionally, the AWS-hosted databases include the flat file TSVs that are used to build the full SocialGene RefSeq Neo4j database.
+
+
+### Database files
+
+The included database dumps and disk space requirements are described in [precomputed_databases/2023_v0.4.1/general](../../general/).
+
+The paths to just the dumps are:
+
+- All RefSeq:
+    - `s3://socialgene-open-data/2023_v0.4.1/refseq/neo4j_db_refseq_base.dump`
+- All RefSeq Actinomycetota:
+    - `s3://socialgene-open-data/2023_v0.4.1/actinomycetota/neo4j_db_actinomycetota_base.dump`
+- All RefSeq Streptomyces:
+    - `s3://socialgene-open-data/2023_v0.4.1/streptomyces/neo4j_db_streptomyces_base.dump`
+- All RefSeq Micromonospora:
+    - `s3://socialgene-open-data/2023_v0.4.1/micromonospora/neo4j_db_micromonospora_base.dump`
+- All RefSeq antiSMASH-7.0 BGCs:
+    - `s3://socialgene-open-data/2023_v0.4.1/refseq_antismash_bgcs/neo4j_db_refseq_antismash_bgcs_base.dump`
+
+
+### HMM models
+
+The files in `2023_v0.4.1/hmm_models` are the less-redundant HMM models used to annotate proteins in each of the `2023_v0.4.1` databases. Therefore, the `socialgene_nr_hmms_file_with_cutoffs_1_of_1.hmm.gz` and `socialgene_nr_hmms_file_without_cutoffs_1_of_1.hmm.gz` files are the same for all of the databases. For functions like the SOcialGene BGC search, these files are required. The `hmminfo.gz` file is a gzipped file containing the metadata for the less redundant HMM models.
+
 
 ### Flat files
 
-The TSV flat files included in the `import` directory of the `refseq` database directory may be useful for building custom databases (including non-Neo4j databases) or other analyses. The associations of individual flat files to their column header files are in the tables below. All of the flat files are gzip compressed even if the `.gz` extension is not present in the filename.
+The TSV flat files included in the `2023_v0.4.1/refseq/import` directory may be useful for building custom databases (including non-Neo4j databases) or other analyses. The associations of individual flat files to their column header files are in the tables below. All of the flat files are gzip compressed even if the `.gz` extension is not present in the filename.
 
 
 The paths in the table below start with the `import` directory which is located in the `refseq` database directory (`2023_v0.4.1/refseq/import`).
