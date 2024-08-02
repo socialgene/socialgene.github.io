@@ -1,5 +1,8 @@
 # Precomputed Databases hosted on AWS S3
 
+There is an additional tutorial [here](aws_instructions.md) that explains how to download and use the databases on an AWS EC2 instance.
+
+
 ## Instructions for download and use
 
 Install the latest version of the AWS CLI using the instructions on the [AWS CLI website](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).

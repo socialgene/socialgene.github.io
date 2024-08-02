@@ -6,19 +6,29 @@ The instance is created with an attached EBS volume that is formatted and mounte
 
 ## Launch a new EC2 instance
 
-Search for AMI `ami-0da49bfc774c02019`  (amzn2-ami-ecs-kernel-5.10-hvm-2.0.20240725-x86_64-ebs) (This is the basic Amazon AMI Linux 2 but with Amazon JDK 17 preinstalled which is required for Neo4j)
+- Search for AMI `ami-0da49bfc774c02019`  (amzn2-ami-ecs-kernel-5.10-hvm-2.0.20240725-x86_64-ebs) (This is the basic Amazon AMI Linux 2 but with Amazon JDK 17 preinstalled which is required for Neo4j)
 
-Select an instance type
+![Amazon community AMI](media/image-1.png){: .centered-img }
 
-Select a key pair login or create a new one
+- Select an instance type. Here a t2.micro is chosen for the example but you will likely want a larger instance type for the larger databases
 
-In network settings select "Allow SSH traffic from and "My IP" to restrict access to your IP address
+![Selecting an instance](media/image.png){: .centered-img }
 
-Select edit file systems and add a new volume of size enough to hold the database dump and the rehydrated database. For example, the RefSeq database dump is 220 GB and the rehydrated database is 663 GB.
+- Select a key pair login or create a new one
+- In network settings select "Allow SSH traffic from and "My IP" to restrict access to your IP address
 
-ssh in to the instance (replace the .pem file to the one you downloaded, and the public DNS (`ec2-107-20-98-155.compute-1.amazonaws.com`) of your instance)
+![Key pair (login)](media/image-2.png){: .centered-img }
 
-`ssh -i /home/chase/.aws/socialgene-image.pem ec2-user@ec2-107-20-98-155.compute-1.amazonaws.com`
+
+
+- In "Configure Storage" select "Add new volume" of size enough to hold the database dump and the rehydrated database. For example, the RefSeq database dump is 220 GB and the rehydrated database is 663 GB, so you'd probably want a ~1TB volume. Select edit file systems (bottom right "eidt" in screenshot) and select the device name (e.g. /dev/sdb).
+
+![EBS volume setup](media/image-3.png){: .centered-img }
+
+
+- ssh into the instance (replace the .pem filepath below with the one you downloaded in the "key pair (login)" step above and the public DNS (e.g. `ec2-111-11-11-111.compute-1.amazonaws.com`) of your instance)
+
+`ssh -i /home/chase/.aws/socialgene-image.pem ec2-user@ec2-111-11-11-111.compute-1.amazonaws.com`
 
 `ssh -i REPLACE-ME ec2-user@REPLACE-ME`
 
@@ -104,15 +114,15 @@ For the smaller databases you can stream the dump file from S3 and rehydrate the
 ### Stream the dump file from S3 and rehydrate the database
 
 ```sh
-aws s3 cp --no-sign-request s3://socialgene/neo4j.dump - |\
-    sudo neo4j-admin database load --from-stdin neo4j --overwrite-destination=trueec2-user/a.conf
+curl -s https://my_bucket.s3.amazonaws.com/socialgene/neo4j.dump - |\
+    sudo neo4j-admin database load --from-stdin neo4j --overwrite-destination=true
 ```
 
 ### Download the dump file from S3 and rehydrate the database
 
 ```sh
 # Download the dump file from S3
-aws s3 cp --no-sign-request s3://socialgene/neo4j.dump /data/neo4j.dump
+curl https://my_bucket.s3.amazonaws.com/socialgene/neo4j.dump > /data/neo4j.dump
 # Rehydrate the database
 sudo neo4j-admin database load --from-path=/data/neo4j.dump -neo4j --overwrite-destination=true
 ```
@@ -134,8 +144,8 @@ Now there is a running SocialGene database on the EC2 instance. From here you ca
     - This requires you to open TCP port 7474 and 7687 in the security group settings for the EC2 instance.
     - You can then access the Neo4j browser at `http://<public-dns>:7474` (replace `<public-dns>` with the public DNS of your EC2 instance).
 - Use an SSH tunnel to access the Neo4j browser from your local machine.
-    - Run the following command on your local machine to create an SSH tunnel to the EC2 instance.
-    - `ssh -i /path/to/your.pem -L 7474:localhost:7474 -L 7687:localhost:7687 ec2-user@<public-dns>`
+    - Run the following command on your local machine to create an SSH tunnel to the EC2 instance. Replace `/path/to/your.pem` with the path to your .pem file and `<public-dns>` with the public DNS of your EC2 instance.
+    - `ssh -i /path/to/your.pem -L 7474:localhost:7474 -L 7687:localhost:7687 ec2-user@ec2-111-11-11-111.compute-1.amazonaws.com`
     - You can then access the Neo4j browser at `http://localhost:7474` in your local browser.
 
 
