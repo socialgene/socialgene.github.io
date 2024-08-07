@@ -70,6 +70,10 @@ All of the above databases were built with the same set of HMM models, these are
     - [params_micromonospora.json](../parameters/params_micromonospora.json)
 - All RefSeq antiSMASH-7.0 BGCs
     - [params_refseq_antismash_bgcs.json](../parameters/params_refseq_antismash_bgcs.json)
+- Three genomes used for protein similarity method comparisons
+    - [params_methods_comparison.json](../parameters/params_methods_comparison.json)
+
+
 
 ## Instructions for downloading data from...
 
