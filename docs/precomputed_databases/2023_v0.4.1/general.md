@@ -42,6 +42,12 @@ You will need at least enough disk space to accommodate the dump file and rehydr
     - Rehydrated database is ~3 GB
     - 314 genomes + MIBiG BGCs
 
+- Three genomes used for protein similarity method comparisons
+    - Database dump file is ~99 MB
+    - Rehydrated database is ~744 MB
+    - 3 genomes
+        - GCF_000009045.1, GCF_000005845.2, GCF_008931305.1 (Bacillus subtilis subsp. subtilis str. 168, Escherichia coli str. K-12 substr. MG1655, and Streptomyces coelicolor A3(2); downloaded on June 20, 2024)
+    
 
 
 

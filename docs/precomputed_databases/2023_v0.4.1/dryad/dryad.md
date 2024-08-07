@@ -63,11 +63,9 @@ Dryad only allows for a flat file structure so the files are all in the same "di
     - All RefSeq antiSMASH-7.0 BGCs
         - `neo4j_db_refseq_antismash_bgcs_base.dump`
         - `params_refseq_antismash_bgcs.json`
-
-
+    - Three genomes used for protein similarity method comparisons
+        - `methods_comparison.dump`
+        - `methods_comparison.json`
 
 ## Checksums
 Additionally, there is a single `md5checksums.txt` file that contains the md5 checksums for all of the files in the dataset. This can be used to verify the integrity of any or all of the files after downloading. This includes the expected md5sum of the concatenated `neo4j_db_refseq_base.dump` file.
-
-
-
