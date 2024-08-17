@@ -72,8 +72,6 @@ echo 'server.directories.export=/opt/conda/bin/neo4j/import' >> $sg_neoloc/conf/
 
 === "shell"
 ```bash
-pipeline_version='latest'
-
 docker run \
     --user=$(id -u):$(id -g) \
     -p7474:7474 -p7687:7687 \
@@ -91,7 +89,7 @@ docker run \
         --env NEO4J_server_memory_heap_max__size=$NEO4J_server_memory_heap_max__size \
         --env NEO4J_server_memory_pagecache_size=$NEO4J_server_memory_pagecache_size \
         --env NEO4J_server_jvm_additional='-XX:+ExitOnOutOfMemoryError' \
-    chasemc2/sgnf-sgpy:$pipeline_version
+    neo4j:5.17.0
 
 ```
 
