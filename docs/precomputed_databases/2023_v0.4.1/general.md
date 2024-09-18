@@ -79,3 +79,29 @@ All of the above databases were built with the same set of HMM models, these are
 
 - [Dryad](./dryad/dryad.md)
 - [AWS S3](./aws/aws.md)
+
+
+## Access information
+
+Data was derived from the following sources:
+
+- RefSeq https://www.ncbi.nlm.nih.gov/home/about/policies (opens in new window)
+- Resfams http://www.dantaslab.org/resfams (opens in new window)
+- antiSMASH (Many of the HMM models are from PFAM)
+  - GNU Affero General Public License v3.0
+  - https://github.com/antismash/antismash/blob/e2d777c6cd035e6bf20f7eec924a350b00b84c7b/LICENSE.txt (opens in new window)
+- AMRFinder
+  - Public domain
+  - https://github.com/ncbi/amr/blob/c5fe35453ee102dcb2e44d6b1198992b1ab7a355/LICENSE (opens in new window)
+- PFAM
+  - CC0 1.0 License
+  - https://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam35.0/relnotes.txt (opens in new window)
+- resfams
+  - MIT License
+  - http://www.dantaslab.org/s/LICENSE.txt (opens in new window)
+- TIGRFAM
+  - Creative Commons Attribution-ShareAlike 4.0
+  - https://www.ncbi.nlm.nih.gov/refseq/annotation_prok/tigrfams/
+
+
+
