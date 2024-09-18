@@ -176,7 +176,7 @@ The paths to just the dumps are:
 
 ### HMM models
 
-The files in `2023_v0.4.1/hmm_models` are the less-redundant HMM models used to annotate proteins in each of the `2023_v0.4.1` databases. Therefore, the `socialgene_nr_hmms_file_with_cutoffs_1_of_1.hmm.gz` and `socialgene_nr_hmms_file_without_cutoffs_1_of_1.hmm.gz` files are the same for all of the databases. For functions like the SOcialGene BGC search, these files are required. The `hmminfo.gz` file is a gzipped file containing the metadata for the less redundant HMM models.
+The files in `2023_v0.4.1/hmm_models` are the less-redundant HMM models used to annotate proteins in each of the `2023_v0.4.1` databases. Therefore, the `socialgene_nr_hmms_file_with_cutoffs_1_of_1.hmm.gz` and `socialgene_nr_hmms_file_without_cutoffs_1_of_1.hmm.gz` files are the same for all of the databases. For functions like the SocialGene BGC search, these files are required. The `hmminfo.gz` file is a gzipped file containing the metadata for the less redundant HMM models.
 
 
 ### Flat files
