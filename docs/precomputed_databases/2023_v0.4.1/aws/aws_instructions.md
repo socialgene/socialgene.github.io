@@ -1,6 +1,6 @@
 # Create a compute instance and install Neo4j
 
-This guide will walk you through getting a *very* basic setup of getting Neo4j Community Edition installed on an AWS EC2 instance and rehydrating a SocialGene database on it. This guide is not intended for production use, but rather as a starting point (i.e. you are resposinble for securing the instance, setting up backups, any costs, etc.). AWS open data datasets are free to access but you will be charged for the EC2 instance, storage, etc.
+This guide will walk you through getting a *very* basic setup of getting Neo4j Community Edition installed on an AWS EC2 instance and rehydrating a SocialGene database on it. This guide is not intended for production use, but rather as a starting point (i.e. you are responsible for securing the instance, setting up backups, any costs, etc.). AWS open data datasets are free to access but you will be charged for the EC2 instance, storage, etc.
 
 The instance is created with an attached EBS volume that is formatted and mounted at /data. The Neo4j configuration file is updated to use the /data directory for the database and other directories.
 
