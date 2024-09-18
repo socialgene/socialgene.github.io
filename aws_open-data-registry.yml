@@ -12,6 +12,7 @@ Tags:
   - natural products
   - drug discovery
 License: There are no restrictions on the use of this data. Individual components of the database may have their own license.
+Citation: C. M. Clark, J. C. Kwan, Creating and leveraging bespoke large-scale knowledge graphs for comparative genomics and multi-omics drug discovery with SocialGene. bioRxivorg, doi: 10.1101/2024.08.16.608329 (2024).
 Resources:
   - Description: SocialGene 2023_v0.4.1 Data and Database Dumps
     ARN: arn:aws:s3:::socialgene-open-data
@@ -22,8 +23,12 @@ Resources:
 DataAtWork:
   Tutorials:
     - Title:
-      URL: http://127.0.0.1:8000/precomputed_databases/2023_v0.4.1/aws/aws_instructions/
+      URL: http://socialgene.github.io/precomputed_databases/2023_v0.4.1/aws/aws_instructions/
       NotebookURL:
       AuthorName: Chase M. Clark
       AuthorURL: chasemc.github.io
       Services: EC2
+  Publications:
+    - Title: Creating and leveraging bespoke large-scale knowledge graphs for comparative genomics and multi-omics drug discovery with SocialGene.
+      URL: https://www.biorxiv.org/content/10.1101/2024.08.16.608329v1
+      AuthorName: C. M. Clark, J. C. Kwan
