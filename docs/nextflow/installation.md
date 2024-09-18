@@ -16,7 +16,7 @@ After installing Conda, use the following command to create a minimal environeme
 
 === "shell"
 ```bash
-conda create --name nf "bioconda::nextflow>=23.04" "bioconda::nf-core>=2.4"
+conda create --name nf "bioconda::nextflow" "bioconda::nf-core"
 ```
 
 To activate and use the newly-created environment:
