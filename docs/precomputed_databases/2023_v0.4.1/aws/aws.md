@@ -18,9 +18,6 @@ aws s3 cp s3://socialgene-open-data/2023_v0.4.1/micromonospora/neo4j_db_micromon
 Then follow the instructions for [restoring from a full database dump/backup](../../../../neo4j/database_backups/#restore-from-a-full-database-dumpbackup) to rehydrate the Neo4j database. Note that the instructions use Docker, so you will need to have Docker installed or [manually install Neo4j](https://neo4j.com/docs/operations-manual/current/installation/).
 
 
-docs/neo4j/database_backups.md
-/docs/precomputed_databases/2023_v0.4.1/aws/aws.md
-
 ### Using Neo4j Enterprise Edition
 
 Ensure you have a valid license for Neo4j Enterprise Edition. Install the latest version of the Neo4j Enterprise Edition using the instructions on the [Neo4j website](https://neo4j.com/download/).
@@ -156,10 +153,6 @@ The following files are included in the AWS S3 bucket:
             ├── params_2023-12-03_15-35-49.json
             └── pipeline_dag_2023-12-02_18-46-19.html
 ```
-
-
-The difference between this and the Dryad-hosted databases is that the Dryad-hosted full RefSeq database is split into multiple parts. The AWS-hosted databases are not split into multiple parts. Additionally, the AWS-hosted databases include the flat file TSVs that are used to build the full SocialGene RefSeq Neo4j database.
-
 
 ### Database files
 
