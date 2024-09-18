@@ -11,7 +11,7 @@ Tags:
   - microbiome
   - natural products
   - drug discovery
-License: There are no restrictions on the use of this data. Individual components of the database may have their own license.
+License: There are no restrictions on the use of SocialGene data, however individual components of the database may have their own license (see https://socialgene.github.io/precomputed_databases/2023_v0.4.1/general)
 Citation: C. M. Clark, J. C. Kwan, Creating and leveraging bespoke large-scale knowledge graphs for comparative genomics and multi-omics drug discovery with SocialGene. bioRxivorg, doi: 10.1101/2024.08.16.608329 (2024).
 Resources:
   - Description: SocialGene 2023_v0.4.1 Data and Database Dumps
