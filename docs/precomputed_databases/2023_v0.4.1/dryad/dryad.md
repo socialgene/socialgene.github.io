@@ -7,9 +7,9 @@ The data can be accessed at the following link: [https://doi.org/10.5061/dryad.n
 # Data Description
 The included databases are described [here](../general/).
 
-One difference is the full SocialGene RefSeq Neo4j database had to be split into 24 parts for hosting on Dryad. The resulting parts follow the naming convention `neo4j_db_refseq_base.dump_split_0`, `neo4j_db_refseq_base.dump_split_01`, ..., `neo4j_db_refseq_base.dump_split_23`.
+One difference is the full SocialGene RefSeq Neo4j database and Actinomycetota database had to be split into smaller parts for hosting on Dryad. The resulting split files follow the naming convention `neo4j_db_refseq_base.dump_split_0`, `neo4j_db_refseq_base.dump_split_01`, ..., `neo4j_db_refseq_base.dump_split_23`.
 
-Before use the full database dump file must be merged by downloading all 24 parts and concatenating them together.
+Before using these two database dumps the files must be merged by downloading all of the parts and concatenating them together.
 
 For example:
 ```bash
@@ -68,4 +68,4 @@ Dryad only allows for a flat file structure so the files are all in the same "di
         - `methods_comparison.json`
 
 ## Checksums
-Additionally, there is a single `md5checksums.txt` file that contains the md5 checksums for all of the files in the dataset. This can be used to verify the integrity of any or all of the files after downloading. This includes the expected md5sum of the concatenated `neo4j_db_refseq_base.dump` file.
+Additionally, there is a single `md5checksums.txt` file that contains the md5 checksums for all of the files in the dataset. This can be used to verify the integrity of any or all of the files after downloading. This includes the expected md5sum of the concatenated `neo4j_db_refseq_base.dump` and `neo4j_db_actinomycetota_base.dump` files.

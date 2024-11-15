@@ -40,8 +40,10 @@ nav:
                             - aws:
                                 - data: "precomputed_databases/2023_v0.4.1/aws/aws.md"
                                 - instructions: "precomputed_databases/2023_v0.4.1/aws/aws_instructions.md"
+                                - local use: "precomputed_databases/2023_v0.4.1/aws/local_use.md"
                             - dryad: "precomputed_databases/2023_v0.4.1/dryad/dryad.md"
         - "Presentations": "presentations/presentations.md"
+        - "hasher": "hasher/hasher.md"
         - "Give Feedback": "feedback.md"
 
 plugins:
@@ -56,6 +58,7 @@ markdown_extensions:
         - admonition
         - pymdownx.details
         - pymdownx.superfences
+        - pymdownx.snippets
         - pymdownx.tabbed:
                   alternate_style: true
 
